@@ -54,20 +54,24 @@
   }
 
   /* Dark mode text */
-  .dark:not(.footer) {
-    color: white;
-  }
-
   .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark span, .dark div, .dark a {
     color: white;
   }
 
   /* Footer always dark */
-  footer, footer * {
+  .footer-always-dark, .footer-bg {
+    background-color: #191a23 !important;
+  }
+
+  .footer-always-dark, .footer-always-dark *, .footer-bg, .footer-bg * {
     color: #f3f3f3 !important;
   }
 
-  .dark footer, .dark footer * {
+  .dark .footer-always-dark, .dark .footer-bg {
+    background-color: #191a23 !important;
+  }
+
+  .dark .footer-always-dark, .dark .footer-always-dark *, .dark .footer-bg, .dark .footer-bg * {
     color: #f3f3f3 !important;
   }
 
