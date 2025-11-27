@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import s1 from "../../assets/company/company-logo1.svg";
+import s2 from "../../assets/company/company-logo2.svg";
+import s3 from "../../assets/company/company-logo3.svg";
+import s4 from "../../assets/company/company-logo4.svg";
+import s5 from "../../assets/company/company-logo5.svg";
+import s6 from "../../assets/company/company-logo6.svg";
+import Section from "./Section.astro";
+
+const sponsors = [
+  { logo: s6, alt: "Empresa global de tecnología" },
+  { logo: s5, alt: "Plataforma de diseño líder" },
+  { logo: s4, alt: "Empresa de automatización de marketing" },
+  { logo: s3, alt: "Herramienta de productividad colaborativa" },
+  { logo: s2, alt: "Plataforma de streaming" },
+  { logo: s1, alt: "Empresa de videoconferencias" },
+];
+---
+
+<Section id="sponsors">
+  <div class="text-center mb-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3"> 
+      Confían en nuestra experiencia tecnológica
+    </h2>
+    <p class="text-gray-600 max-w-2xl mx-auto text-base"> 
+      Hemos colaborado con startups innovadoras y empresas establecidas en diversos sectores, 
+      ayudándolas a transformar sus ideas en soluciones digitales robustas y escalables.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-6">
+    {
+      sponsors.map((sponsor, index) => (
+        <div 
+          key={index}
+          class="flex items-center justify-center p-3 grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100" <!-- 🔽 p-4 → p-3 -->
+        >
+          <Image 
+            src={sponsor.logo} 
+            alt={sponsor.alt} 
+            loading="lazy" 
+            class="h-9 sm:h-10 w-auto"
+          />
+        </div>
+      ))
+    }
+  </div>
+</Section>

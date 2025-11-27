@@ -7,6 +7,7 @@ import s4 from "../../assets/company/company-logo4.svg";
 import s5 from "../../assets/company/company-logo5.svg";
 import s6 from "../../assets/company/company-logo6.svg";
 import Section from "./Section.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
 
 const sponsors = [
   { logo: s6, alt: "Amazon logo" },
@@ -19,6 +20,9 @@ const sponsors = [
 ---
 
 <Section id="sponsors">
+  <SectionTitle
+    sectionTitle="Confian en nosotros"
+  />
   <div class="flex-row items-center">
   <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6">
     {
