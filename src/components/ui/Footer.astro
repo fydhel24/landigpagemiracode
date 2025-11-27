@@ -12,13 +12,13 @@ const logos = [
 ];
 ---
 
-<section class="sm:px-5">
+<section class="sm:px-5" id="footer">
   <div class="w-full mx-auto">
     <div class="px-[15px] bg-dark text-gray py-[55px] lg:px-[60px] sm:rounded-t-[45px]">
       <!-- Fila principal: Contacto + Redes -->
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-[66px]">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-[66px]" id="footer-main">
         <!-- Contactos (a la izquierda en lg) -->
-        <div class="flex flex-col w-full lg:w-[30%] text-center lg:text-start">
+        <div class="flex flex-col w-full lg:w-[30%] text-center lg:text-start" id="footer-contact">
           <h3 class="mb-5 text-center md:text-left text-2xl text-green">Contactos</h3>
           <div class="flex flex-col justify-between gap-4">
             <span>Email: miracode@gmail.com</span>
@@ -28,9 +28,9 @@ const logos = [
         </div>
 
         <!-- Redes sociales (a la derecha en lg) -->
-        <ul class="flex gap-5">
+        <ul class="flex gap-5" id="footer-social">
           {logos.map((logo) => (
-            <li key={logo.name}>
+            <li class="footer-social-item">
               <a href={logo.link.trim()} target="_blank">
                 <picture>
                   <Image src={logo.src} alt={logo.name} />
@@ -42,14 +42,29 @@ const logos = [
       </div>
 
       <!-- Separador -->
-      <div class="h-[1px] bg-gray mb-5"></div>
+      <div class="h-[1px] bg-gray mb-5" id="footer-separator"></div>
 
       <!-- Copyright (siempre centrado) -->
-      <div class="flex flex-col lg:flex-row h-20 justify-center items-center text-center">
+      <div class="flex flex-col lg:flex-row h-20 justify-center items-center text-center" id="footer-copyright">
         <span>
-          2025 Miracode - by Copiright 
+          2025 Miracode - by Copiright
         </span>
-      </div>  
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Animate footer on load
+  gsap.set('#footer-contact', { opacity: 0, x: -50 });
+  gsap.set('.footer-social-item', { opacity: 0, y: 20 });
+  gsap.set('#footer-separator', { scaleX: 0 });
+  gsap.set('#footer-copyright', { opacity: 0, y: 20 });
+
+  gsap.to('#footer-contact', { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out' });
+  gsap.to('.footer-social-item', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1, delay: 0.2 });
+  gsap.to('#footer-separator', { scaleX: 1, duration: 0.8, ease: 'power2.out', delay: 0.5 });
+  gsap.to('#footer-copyright', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.7 });
+</script>

@@ -25,7 +25,7 @@ const { ...props } = Astro.props;
   </style>
   <script src="../utils/lenis"></script>
   <body class="bg-white font-grotesk">
-    <main>
+    <main transition:name="main">
       <Navbar />
       <slot />
       <Footer />

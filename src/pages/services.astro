@@ -119,23 +119,23 @@ const services = [
 ];
 ---
 
-<MainLayout 
-  title="Nuestros Servicios | Miracode" 
+<MainLayout
+  title="Nuestros Servicios | Miracode"
   description="Desarrollo web, software a medida, diseño UI/UX, APIs, cloud y mantenimiento técnico. Soluciones tecnológicas integrales para tu negocio."
 >
-  <div class="py-16 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-6">
-    <div class="text-center mb-16">
-      <h1 class="mb-4 text-5xl font-bold tracking-tight md:text-6xl">
+  <div class="py-16 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-6" id="services-page">
+    <div class="text-center mb-16" id="services-header">
+      <h1 class="mb-4 text-5xl font-bold tracking-tight md:text-6xl" id="services-main-title">
         Nuestros Servicios
       </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto" id="services-main-description">
         En Miracode, construimos soluciones digitales robustas, escalables y centradas en resolver los desafíos reales de tu negocio.
       </p>
     </div>
-    
-    <div class="space-y-24">
+
+    <div class="space-y-24" id="services-list">
       {services.map((service, index) => (
-        <div class="service-item">
+        <div class="service-item-page">
           <div class="mb-12">
             <ServiceCard
               index={service.index}
@@ -146,13 +146,13 @@ const services = [
               link={service.link}
             />
           </div>
-          
+
           <div class="grid md:grid-cols-2 gap-10 px-4">
             <div>
               <h3 class="text-2xl font-bold mb-4">Qué ofrecemos</h3>
               <p class="mb-6 text-gray-600">{service.description}</p>
-              <a 
-                href={service.link} 
+              <a
+                href={service.link}
                 class="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition font-medium"
               >
                 {service.cta}
@@ -161,7 +161,7 @@ const services = [
                 </svg>
               </a>
             </div>
-            
+
             <div class="bg-blue-50 rounded-2xl p-8">
               <h3 class="text-2xl font-bold mb-4">Beneficios</h3>
               <ul class="space-y-4">
@@ -179,8 +179,8 @@ const services = [
         </div>
       ))}
     </div>
-    
-    <div class="mt-24 text-center">
+
+    <div class="mt-24 text-center" id="services-cta">
       <Card>
         <div class="p-10 md:p-16">
           <h2 class="text-3xl md:text-4xl font-bold mb-6">
@@ -189,8 +189,8 @@ const services = [
           <p class="mb-10 text-xl text-gray-600 max-w-2xl mx-auto">
             Cuéntanos tu idea. Desarrollaremos una propuesta técnica personalizada, con estimación de tiempos, tecnologías y pasos a seguir.
           </p>
-          <a 
-            href="#contacto" 
+          <a
+            href="#contacto"
             class="inline-flex items-center px-10 py-5 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition font-medium text-xl"
           >
             Comenzar proyecto
@@ -199,6 +199,75 @@ const services = [
       </Card>
     </div>
   </div>
+
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate services page
+    gsap.set('#services-main-title', { opacity: 0, y: 50 });
+    gsap.set('#services-main-description', { opacity: 0, y: 50 });
+    gsap.set('.service-item-page', { opacity: 0, y: 50 });
+    gsap.set('#services-cta', { opacity: 0, y: 50 });
+
+    gsap.to('#services-main-title', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#services-page',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.to('#services-main-description', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: '#services-page',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.to('.service-item-page', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      stagger: 0.3,
+      delay: 0.4,
+      scrollTrigger: {
+        trigger: '#services-page',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.to('#services-cta', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      delay: 0.6,
+      scrollTrigger: {
+        trigger: '#services-page',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  </script>
 </MainLayout>
 
 <style>

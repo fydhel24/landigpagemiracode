@@ -20,20 +20,41 @@ const sponsors = [
 ---
 
 <Section id="sponsors">
-  <SectionTitle
-    sectionTitle="Confian en nosotros"
-  />
+  <div id="sponsors-title">
+    <SectionTitle
+      sectionTitle="Confian en nosotros"
+    />
+  </div>
   <div class="flex-row items-center">
-  <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6">
+  <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6" id="sponsors-grid">
     {
       sponsors.map((sponsor) => {
         return (
-          <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
+          <div class="sponsor-logo p-4 grayscale transition duration-200 hover:grayscale-0">
             <Image src={sponsor.logo} class="h-12 w-auto mx-auto" alt={sponsor.alt} loading="lazy" />
           </div>
         );
       })
     }
   </div>
-  </div> 
+  </div>
 </Section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Animate sponsors section
+  gsap.set('#sponsors-title', { opacity: 0, y: 50 });
+  gsap.set('.sponsor-logo', { opacity: 0, scale: 0.8 });
+
+  gsap.to('#sponsors-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
+
+  gsap.to('.sponsor-logo', {
+    opacity: 1,
+    scale: 1,
+    duration: 0.6,
+    ease: 'back.out(1.7)',
+    stagger: 0.1,
+    delay: 0.5
+  });
+</script>

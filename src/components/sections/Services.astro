@@ -67,22 +67,64 @@ const description =
 ---
 
 <Section id="services">
-  <div class="mt-16 mb-10"> <!-- ajustado: [140px] → mt-16 (4rem = ~64px) -->
-    <SectionTitle sectionTitle="Nuestros Servicios" description={description} />
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+  <div class="mt-16 mb-10" id="services-container"> <!-- ajustado: [140px] → mt-16 (4rem = ~64px) -->
+    <div id="services-title">
+      <SectionTitle sectionTitle="Nuestros Servicios" description={description} />
+    </div>
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8" id="services-grid">
       {
         cards.map((card) => (
-          <ServiceCard
-            key={card.index}
-            index={card.index}
-            titleTop={card.titleTop}
-            titleBottom={card.titleBottom}
-            img={card.img}
-            alt={card.alt}
-            link={card.link}
-          />
+          <div class="service-card">
+            <ServiceCard
+              index={card.index}
+              titleTop={card.titleTop}
+              titleBottom={card.titleBottom}
+              img={card.img}
+              alt={card.alt}
+              link={card.link}
+            />
+          </div>
         ))
       }
     </div>
   </div>
 </Section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate services section on scroll
+  gsap.set('#services-title', { opacity: 0, y: 50 });
+  gsap.set('.service-card', { opacity: 0, y: 50 });
+
+  gsap.to('#services-title', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#services-container',
+      start: 'top 80%',
+      end: 'bottom 20%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+
+  gsap.to('.service-card', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    stagger: 0.2,
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: '#services-container',
+      start: 'top 80%',
+      end: 'bottom 20%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+</script>

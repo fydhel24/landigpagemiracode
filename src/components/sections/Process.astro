@@ -7,11 +7,26 @@ const description = "Step-by-Step Guide to Achieving Your Business Goals";
 ---
 
 <Section id="process">
-  <div class="mt-[140px]">
-    <SectionTitle
-      sectionTitle="Our Working Process"
-      description={description}
-    />
-    <Accordion />
+  <div class="mt-[140px]" id="process-container">
+    <div id="process-title">
+      <SectionTitle
+        sectionTitle="Our Working Process"
+        description={description}
+      />
+    </div>
+    <div id="process-accordion">
+      <Accordion />
+    </div>
   </div>
 </Section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Animate process section
+  gsap.set('#process-title', { opacity: 0, y: 50 });
+  gsap.set('#process-accordion', { opacity: 0, y: 50 });
+
+  gsap.to('#process-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
+  gsap.to('#process-accordion', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.3 });
+</script>

@@ -13,20 +13,93 @@ const allBlogArticles: CollectionEntry<'blog'>[] = (await getCollection('blog'))
 ---
 
 <MainLayout title="Positivus - Blog">
-	<main class="space-y-20">
+	<main class="space-y-20" id="articles-main">
             <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
-                <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-                    <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold">Our Blog</h2>
-                    <p class="font-light sm:text-xl">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
-                </div> 
+                <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8" id="articles-header">
+                    <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold" id="articles-title">Our Blog</h2>
+                    <p class="font-light sm:text-xl" id="articles-description">We use an agile approach to test assumptions and connect with the needs of your audience early and often.</p>
+                </div>
                 <br>
-                <SearchForm />
+                <div id="articles-search">
+                  <SearchForm />
+                </div>
                 <br>
-                <div class="grid gap-8 lg:grid-cols-2">
+                <div class="grid gap-8 lg:grid-cols-2" id="articles-grid">
                     {allBlogArticles.map(article => (
-                        <ArticleCard article={article} />
+                        <div class="article-item">
+                          <ArticleCard article={article} />
+                        </div>
                     ))}
-                </div>  
+                </div>
             </div>
 	</main>
+
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate articles page
+    gsap.set('#articles-title', { opacity: 0, y: 50 });
+    gsap.set('#articles-description', { opacity: 0, y: 50 });
+    gsap.set('#articles-search', { opacity: 0, y: 50 });
+    gsap.set('.article-item', { opacity: 0, y: 50 });
+
+    gsap.to('#articles-title', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#articles-main',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.to('#articles-description', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: '#articles-main',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.to('#articles-search', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      delay: 0.4,
+      scrollTrigger: {
+        trigger: '#articles-main',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.to('.article-item', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      stagger: 0.2,
+      delay: 0.6,
+      scrollTrigger: {
+        trigger: '#articles-main',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  </script>
 </MainLayout>

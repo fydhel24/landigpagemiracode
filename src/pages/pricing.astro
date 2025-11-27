@@ -5,75 +5,131 @@ import Card from "../components/ui/Card.astro";
 ---
 
 <MainLayout title="Precios">
-	<main class="space-y-20">
+	<main class="space-y-20" id="pricing-main">
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
-      <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
+      <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12" id="pricing-header">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900" id="pricing-title">
           Planes diseñados para tu crecimiento tecnológico
         </h2>
-        <p class="mb-5 font-light text-gray-500 sm:text-xl">
+        <p class="mb-5 font-light text-gray-500 sm:text-xl" id="pricing-description">
           En Miracode, ofrecemos soluciones de desarrollo a medida con transparencia, soporte continuo y escalabilidad desde el primer día.
         </p>
       </div>
 
-      <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+      <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0" id="pricing-cards">
         {
-          priceData.map((item) => (
-            <Card isUnderline={true}>
-              <div class="flex flex-col p-6 mx-auto max-w-lg text-center border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition">
-                <h3 class="mb-4 text-2xl font-bold text-gray-900">{item.title}</h3>
-                <p class="font-light text-gray-600 sm:text-lg mb-6">{item.description}</p>
+          priceData.map((item, index) => (
+            <div class="pricing-card">
+              <Card isUnderline={true}>
+                <div class="flex flex-col p-6 mx-auto max-w-lg text-center border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition">
+                  <h3 class="mb-4 text-2xl font-bold text-gray-900">{item.title}</h3>
+                  <p class="font-light text-gray-600 sm:text-lg mb-6">{item.description}</p>
 
-                <div class="flex justify-center items-baseline my-6">
-                  <span class="mr-2 text-5xl font-extrabold text-blue-600">${item.price}</span>
-                  <span class="text-gray-500">/mes</span>
+                  <div class="flex justify-center items-baseline my-6">
+                    <span class="mr-2 text-5xl font-extrabold text-blue-600">${item.price}</span>
+                    <span class="text-gray-500">/mes</span>
+                  </div>
+
+                  <!-- Lista de características -->
+                  <ul role="list" class="mb-8 space-y-4 text-left">
+                    <li class="flex items-start space-x-3">
+                      <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      <span>{item.devCount} desarrolladores asignados</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                      <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      <span>{item.support} de soporte técnico</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                      <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      <span>Actualizaciones y parches de seguridad</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                      <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      <span>Reuniones semanales de seguimiento</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                      <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      <span>Documentación técnica incluida</span>
+                    </li>
+                  </ul>
+
+                  <a
+                    href={item.link}
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg text-sm px-5 py-2.5 transition shadow hover:shadow-sm"
+                  >
+                    {item.action}
+                  </a>
                 </div>
-
-                <!-- Lista de características -->
-                <ul role="list" class="mb-8 space-y-4 text-left">
-                  <li class="flex items-start space-x-3">
-                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>{item.devCount} desarrolladores asignados</span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>{item.support} de soporte técnico</span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Actualizaciones y parches de seguridad</span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Reuniones semanales de seguimiento</span>
-                  </li>
-                  <li class="flex items-start space-x-3">
-                    <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span>Documentación técnica incluida</span>
-                  </li>
-                </ul>
-
-                <a
-                  href={item.link}
-                  class="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg text-sm px-5 py-2.5 transition shadow hover:shadow-sm"
-                >
-                  {item.action}
-                </a>
-              </div>
-            </Card>
+              </Card>
+            </div>
           ))
         }
       </div>
     </div>
 	</main>
+
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate pricing page
+    gsap.set('#pricing-title', { opacity: 0, y: 50 });
+    gsap.set('#pricing-description', { opacity: 0, y: 50 });
+    gsap.set('.pricing-card', { opacity: 0, y: 50 });
+
+    gsap.to('#pricing-title', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#pricing-main',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.to('#pricing-description', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: '#pricing-main',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    gsap.to('.pricing-card', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      stagger: 0.2,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: '#pricing-main',
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  </script>
 </MainLayout>
