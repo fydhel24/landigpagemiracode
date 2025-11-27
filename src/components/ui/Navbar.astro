@@ -12,7 +12,7 @@ const navButton = { href: '#', label: 'Contactanos' };
 ---
 
 <div class="mt-20">
-  <nav class="w-full top-0 left-0 z-50 fixed bg-white">
+  <nav class="w-full top-0 left-0 z-50 fixed bg-white dark:bg-gray-900">
     <header class="flex flex-col lg:flex-row justify-between items-center my-5 px-6 md:px-32">
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between">
@@ -37,9 +37,9 @@ const navButton = { href: '#', label: 'Contactanos' };
           <ul class="font-medium flex flex-col p-4 lg:p-0 mt-4 border rounded-lg lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0">
             {menuitems.map((item, index) => (
               <li>
-                <a 
-                  href={item.href} 
-                  class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0"
+                <a
+                  href={item.href}
+                  class="mobile-nav-link block py-2 px-3 text-black dark:text-white rounded lg:bg-transparent lg:p-0"
                   data-close-menu="true"
                 >
                   {item.label}
@@ -61,7 +61,11 @@ const navButton = { href: '#', label: 'Contactanos' };
 
       <div>
         <div class="hidden lg:flex items-center gap-4">
-          <a class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href={navButton.href}>
+          <button id="theme-toggle" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium">
+            <span id="sun-text">Light</span>
+            <span id="moon-text" class="hidden">Dark</span>
+          </button>
+          <a class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700 inline-flex" href={navButton.href}>
             <h2 class="text-center text-xl font-normal leading-7">{navButton.label}</h2>
           </a>
         </div>
@@ -94,5 +98,31 @@ const navButton = { href: '#', label: 'Contactanos' };
       openIcon.classList.remove('hidden');  // Show the open (hamburger) icon
       closeIcon.classList.add('hidden');  // Hide the close (X) icon
     });
+  });
+
+  // Dark mode toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const sunText = document.getElementById('sun-text');
+  const moonText = document.getElementById('moon-text');
+
+  // Check for saved theme preference or default to light mode
+  const currentTheme = localStorage.getItem('theme') || 'light';
+
+  if (currentTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+    sunText.classList.add('hidden');
+    moonText.classList.remove('hidden');
+  } else {
+    document.documentElement.classList.remove('dark');
+    sunText.classList.remove('hidden');
+    moonText.classList.add('hidden');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    sunText.classList.toggle('hidden');
+    moonText.classList.toggle('hidden');
   });
 </script>

@@ -36,6 +36,41 @@
     --white: #ffffff;
   }
 
+  .dark {
+    --green: #b9ff66;
+    --black: #ffffff;
+    --dark: #f3f3f3;
+    --gray: #191a23;
+    --white: #000000;
+  }
+
+  /* Dark mode image filters */
+  .dark img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+
+  .dark svg {
+    filter: brightness(0.8);
+  }
+
+  /* Dark mode text */
+  .dark:not(.footer) {
+    color: white;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark span, .dark div, .dark a {
+    color: white;
+  }
+
+  /* Footer always dark */
+  footer, footer * {
+    color: #f3f3f3 !important;
+  }
+
+  .dark footer, .dark footer * {
+    color: #f3f3f3 !important;
+  }
+
   /* @layer base {
     * {
       box-sizing: border-box;
