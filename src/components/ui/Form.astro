@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import decorForm from "../../assets/pics/contact-pic.png";
+import decorForm from "../../assets/pics/logo1.png";
 ---
 
-<div class="relative bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden">
+<div class="relative bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden flex flex-col lg:flex-row">
+  <!-- Formulario -->
   <form
     action="https://formspree.io/f/TU_FORM_ID"
     method="POST"
-    class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm p-6 md:p-8 max-w-lg"
+    class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm p-6 md:p-8 max-w-lg w-full"
   >
     <div class="flex flex-col sm:flex-row gap-4 mb-6">
       <div class="flex items-center gap-3">
@@ -78,14 +79,16 @@ import decorForm from "../../assets/pics/contact-pic.png";
   </form>
 
   <!-- Ilustración decorativa -->
-  <div class="hidden lg:block absolute -right-16 top-0 bottom-0 w-[200px]">
-    <Image
-      src={decorForm}
-      alt="Ilustración decorativa de código y tecnología"
-      class="h-full w-auto object-contain opacity-80"
-    />
-  </div>
+  <div class="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2">
+  <Image
+    src={decorForm}
+    alt="Ilustración decorativa de código y tecnología"
+    class="h-full w-full object-contain"
+  />
 </div>
+
+</div>
+
 
 <style>
   .radio-tech {
