@@ -1,29 +1,29 @@
-import heroWebImg from "../assets/Banner/Disenoweb.webp";
+import heroEcommerceImg from "../assets/Banner/tienda.webp";
 import heroSoftwareImg from "../assets/Banner/software.webp";
-import heroUiUxImg from "../assets/Banner/tienda.webp";
-import heroApiImg from "../assets/Banner/pedidos.webp";
-import heroCloudImg from "../assets/Banner/hosting.webp";
-import heroMaintenanceImg from "../assets/Banner/movil.webp";
+import heroInfluencerImg from "../assets/Banner/Disenoweb.webp";
+import heroGiftCardImg from "../assets/Banner/pedidos.webp";
+import heroTiktokImg from "../assets/Banner/movil.webp";
+import heroTasksImg from "../assets/Banner/hosting.webp";
 
-import cardWebImg from "../assets/BannerMovil/web.png";
+import cardEcommerceImg from "../assets/BannerMovil/tienda.png";
 import cardSoftwareImg from "../assets/BannerMovil/software.png";
-import cardUiUxImg from "../assets/BannerMovil/tienda.png";
-import cardApiImg from "../assets/BannerMovil/pedidos.png";
-import cardCloudImg from "../assets/BannerMovil/hosting.png";
-import cardMaintenanceImg from "../assets/BannerMovil/movil.png";
+import cardInfluencerImg from "../assets/BannerMovil/web.png";
+import cardGiftCardImg from "../assets/BannerMovil/pedidos.png";
+import cardTiktokImg from "../assets/BannerMovil/movil.png";
+import cardTasksImg from "../assets/BannerMovil/hosting.png";
 
 export const services = [
     {
-        id: "diseno-web",
+        id: "tiendas-ecommerce",
         index: 1,
-        titleTop: "Diseño de Sitios",
-        titleBottom: "Web",
-        img: cardWebImg,
-        heroImg: heroWebImg,
-        alt: "Diseño Web Profesional",
-        brief: "Creamos sitios web modernos, rápidos y optimizados para SEO.",
-        description: "Transformamos tu presencia digital con diseños web impactantes y funcionales. Utilizamos las últimas tecnologías para garantizar que tu sitio no solo se vea increíble, sino que también convierta visitantes en clientes. Desde landing pages hasta portales corporativos complejos.",
-        features: ["Diseño UI/UX Personalizado", "Optimización para Motores de Búsqueda (SEO)", "Responsive Design (Móvil, Tablet, Desktop)", "Integración con Herramientas de Analítica"]
+        titleTop: "Tiendas E-commerce",
+        titleBottom: "Completas",
+        img: cardEcommerceImg,
+        heroImg: heroEcommerceImg,
+        alt: "Tiendas E-commerce Completas",
+        brief: "Sistemas completos de tienda online con gestión integral.",
+        description: "Desarrollamos tiendas online completas con todos los módulos necesarios: catálogo de productos, carrito de compras, verificación de pagos, gestión de almacén e inventario, panel administrativo y reportes. Hemos implementado soluciones exitosas para Importadora Miranda, Importadora Afios y otros clientes, optimizando sus ventas y procesos.",
+        features: ["Sistema de Pagos Integrado", "Gestión de Inventario y Almacén", "Panel de Administración Completo", "Reportes y Estadísticas de Ventas"]
     },
     {
         id: "software-medida",
@@ -32,57 +32,57 @@ export const services = [
         titleBottom: "Medida",
         img: cardSoftwareImg,
         heroImg: heroSoftwareImg,
-        alt: "Desarrollo de Software a Medida",
-        brief: "Soluciones de software personalizadas para optimizar tus procesos.",
-        description: "Desarrollamos software a medida que se adapta perfectamente a las necesidades específicas de tu empresa. Automatizamos procesos, integramos sistemas y creamos herramientas que impulsan la eficiencia operativa y la productividad de tu equipo.",
-        features: ["Análisis de Procesos de Negocio", "Desarrollo Backend y Frontend Robusto", "APIs RESTful y GraphQL", "Mantenimiento y Soporte Evolutivo"]
+        alt: "Desarrollo de Software Personalizado",
+        brief: "Soluciones de software diseñadas específicamente para tu negocio.",
+        description: "Creamos software personalizado que se adapta perfectamente a las necesidades de tu empresa. Desde sistemas de gestión empresarial hasta aplicaciones especializadas. Nuestro enfoque es entender tu proceso de negocio y crear herramientas que optimicen tu operación y aumenten tu productividad.",
+        features: ["Análisis de Procesos de Negocio", "Desarrollo Backend y Frontend", "Integración con Sistemas Existentes", "Soporte y Mantenimiento Continuo"]
     },
     {
-        id: "ecommerce",
+        id: "calendario-influencers",
         index: 3,
-        titleTop: "Tiendas online",
-        titleBottom: "E-commerce",
-        img: cardUiUxImg,
-        heroImg: heroUiUxImg,
-        alt: "Desarrollo de Tiendas Online",
-        brief: "Tiendas online que convierten visitantes en clientes.",
-        description: "Lanza tu negocio al mundo digital con una tienda online potente y segura. Creamos experiencias de compra fluidas que maximizan las ventas. Expertos en plataformas como Shopify, WooCommerce y desarrollos a medida.",
-        features: ["Pasarelas de Pago Seguras", "Gestión de Catálogo e Inventario", "Experiencia de Checkout Optimizada", "Integración con ERP y CRM"]
+        titleTop: "Sistema de Calendario",
+        titleBottom: "para Influencers",
+        img: cardInfluencerImg,
+        heroImg: heroInfluencerImg,
+        alt: "Sistema de Calendario para Influencers",
+        brief: "Gestión de horarios y ubicaciones para influencers y empresas.",
+        description: "Sistema especializado desarrollado para Admus Producción que permite a los influencers gestionar sus horarios, ver ubicaciones de empresas, coordinar visitas y mantener organizada su agenda de colaboraciones. Los influencers pueden ver fácilmente dónde ir, a qué hora y con qué empresa trabajar, todo desde una interfaz intuitiva.",
+        features: ["Calendario Interactivo de Horarios", "Gestión de Ubicaciones Empresariales", "Notificaciones y Recordatorios", "Vista de Agenda por Influencer"]
     },
     {
-        id: "pedidos-online",
+        id: "gift-cards",
         index: 4,
-        titleTop: "Sistema de pedidos",
-        titleBottom: "Online",
-        img: cardApiImg,
-        heroImg: heroApiImg,
-        alt: "Sistema de Pedidos Online",
-        brief: "Sistemas de pedidos eficientes para restaurantes y comercios.",
-        description: "Moderniza tu negocio gastronómico o retail con un sistema de pedidos propio. Elimina comisiones de terceros y fideliza a tus clientes con una plataforma rápida, intuitiva y fácil de gestionar desde cualquier dispositivo.",
-        features: ["Menú Digital Interactivo", "Gestión de Pedidos en Tiempo Real", "Integración con Impresoras de Comandas", "Panel de Administración Intuitivo"]
+        titleTop: "Gift Cards",
+        titleBottom: "Digitales",
+        img: cardGiftCardImg,
+        heroImg: heroGiftCardImg,
+        alt: "Sistema de Tarjetas de Regalo",
+        brief: "Sistema completo de tarjetas de regalo digitales.",
+        description: "Desarrollamos sistemas de Gift Cards (tarjetas de regalo) digitales que permiten a tus clientes comprar, enviar y canjear tarjetas de regalo fácilmente. Incluye generación de códigos únicos, seguimiento de saldos, historial de transacciones y panel administrativo para gestionar todas las tarjetas emitidas.",
+        features: ["Generación de Códigos Únicos", "Sistema de Canje y Validación", "Gestión de Saldos y Vencimientos", "Panel Administrativo Completo"]
     },
     {
-        id: "web-hosting",
+        id: "pedidos-tiktok",
         index: 5,
-        titleTop: "Servicio de Web",
-        titleBottom: "Hosting",
-        img: cardCloudImg,
-        heroImg: heroCloudImg,
-        alt: "Servicios de Web Hosting",
-        brief: "Alojamiento web seguro, rápido y confiable.",
-        description: "Tu sitio web merece el mejor hogar. Ofrecemos soluciones de hosting de alto rendimiento, escalables y seguras. Nos encargamos de la infraestructura técnica para que tú puedas concentrarte en hacer crecer tu negocio.",
-        features: ["Servidores de Alta Velocidad", "Certificados SSL Gratuitos", "Copias de Seguridad Automáticas", "Soporte Técnico Especializado 24/7"]
+        titleTop: "Sistema de Pedidos",
+        titleBottom: "TikTok Live",
+        img: cardTiktokImg,
+        heroImg: heroTiktokImg,
+        alt: "Sistema de Pedidos para TikTok Live",
+        brief: "Gestión de pedidos en vivo para múltiples ubicaciones.",
+        description: "Sistema especializado para gestionar pedidos durante transmisiones en vivo de TikTok. Permite recibir, organizar y distribuir pedidos en tiempo real para diferentes ubicaciones. Ideal para negocios que venden a través de lives y necesitan coordinar entregas en múltiples puntos de venta o ciudades.",
+        features: ["Gestión de Pedidos en Tiempo Real", "Múltiples Ubicaciones de Entrega", "Panel de Control de Inventario", "Reportes de Ventas por Live"]
     },
     {
-        id: "apps-moviles",
+        id: "calendario-tareas",
         index: 6,
-        titleTop: "Desarrollo De Aplicaciones",
-        titleBottom: "Moviles",
-        img: cardMaintenanceImg,
-        heroImg: heroMaintenanceImg,
-        alt: "Desarrollo de Apps Móviles",
-        brief: "Apps móviles nativas e híbridas para iOS y Android.",
-        description: "Lleva tu negocio al bolsillo de tus clientes. Diseñamos y desarrollamos aplicaciones móviles nativas e híbridas que ofrecen experiencias de usuario excepcionales. Desde la conceptualización hasta la publicación en App Store y Google Play.",
-        features: ["Desarrollo iOS (Swift) y Android (Kotlin)", "Apps Híbridas (React Native / Flutter)", "Diseño de Interfaces Móviles (Mobile-First)", "Notificaciones Push y Geolocalización"]
+        titleTop: "Calendario de",
+        titleBottom: "Tareas",
+        img: cardTasksImg,
+        heroImg: heroTasksImg,
+        alt: "Sistema de Calendario de Tareas",
+        brief: "Organización y gestión eficiente de tareas y proyectos.",
+        description: "Sistema de calendario y gestión de tareas que ayuda a equipos y empresas a organizar sus actividades, establecer prioridades, asignar responsables y dar seguimiento a proyectos. Incluye recordatorios, notificaciones y reportes de productividad para mantener todo bajo control.",
+        features: ["Calendario Visual de Tareas", "Asignación de Responsables", "Prioridades y Etiquetas", "Recordatorios Automáticos"]
     },
 ];

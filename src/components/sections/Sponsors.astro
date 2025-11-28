@@ -10,51 +10,65 @@ import Section from "./Section.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
 
 const sponsors = [
-  { logo: s6, alt: "Amazon logo" },
-  { logo: s5, alt: "Dribble logo" },
-  { logo: s4, alt: "HubSpot logo" },
-  { logo: s3, alt: "Notion logo" },
-  { logo: s2, alt: "Netflix logo" },
-  { logo: s1, alt: "Zoom logo" },
+  { logo: s6, alt: "Cliente 1" },
+  { logo: s5, alt: "Cliente 2" },
+  { logo: s4, alt: "Cliente 3" },
+  { logo: s3, alt: "Cliente 4" },
+  { logo: s2, alt: "Cliente 5" },
+  { logo: s1, alt: "Cliente 6" },
 ];
 ---
 
 <Section id="sponsors">
   <div id="sponsors-title">
     <SectionTitle
-      sectionTitle="Confian en nosotros"
+      sectionTitle="Nuestros Clientes"
+      description="Empresas que confían en nuestras soluciones tecnológicas"
     />
   </div>
   <div class="flex-row items-center">
-  <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6" id="sponsors-grid">
-    {
-      sponsors.map((sponsor) => {
-        return (
-          <div class="sponsor-logo p-4 grayscale transition duration-200 hover:grayscale-0">
-            <Image src={sponsor.logo} class="h-12 w-auto mx-auto" alt={sponsor.alt} loading="lazy" />
-          </div>
-        );
-      })
-    }
-  </div>
+    <div
+      class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6"
+      id="sponsors-grid"
+    >
+      {
+        sponsors.map((sponsor) => {
+          return (
+            <div class="sponsor-logo p-4 grayscale transition duration-200 hover:grayscale-0">
+              <Image
+                src={sponsor.logo}
+                class="h-12 w-auto mx-auto"
+                alt={sponsor.alt}
+                loading="lazy"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
   </div>
 </Section>
 
 <script>
-  import { gsap } from 'gsap';
+  import { gsap } from "gsap";
 
   // Animate sponsors section
-  gsap.set('#sponsors-title', { opacity: 0, y: 50 });
-  gsap.set('.sponsor-logo', { opacity: 0, scale: 0.8 });
+  gsap.set("#sponsors-title", { opacity: 0, y: 50 });
+  gsap.set(".sponsor-logo", { opacity: 0, scale: 0.8 });
 
-  gsap.to('#sponsors-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
+  gsap.to("#sponsors-title", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power2.out",
+  });
 
-  gsap.to('.sponsor-logo', {
+  gsap.to(".sponsor-logo", {
     opacity: 1,
     scale: 1,
     duration: 0.6,
-    ease: 'back.out(1.7)',
+    ease: "back.out(1.7)",
     stagger: 0.1,
-    delay: 0.5
+    delay: 0.5,
   });
 </script>

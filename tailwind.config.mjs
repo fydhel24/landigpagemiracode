@@ -24,6 +24,10 @@ export default {
         dark: "var(--dark)",
         gray: "var(--gray)",
         white: "var(--white)",
+        // Colores sutiles de Miracode
+        'miracode-red': '#ff6b6b',
+        'miracode-cyan': '#4ecdc4',
+        'miracode-purple': '#a29bfe',
       },
     },
   },

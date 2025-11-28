@@ -1,32 +1,32 @@
 [
     {
-        "title": "Starter",
-        "description": "Best option for personal use & for your next project",
-        "price": 29,
-        "devCount": "1 developer",
-        "support": "6 months",
-        "update": "6 months",
-        "action": "Get Started",
-        "link": "/"
+        "title": "Básico",
+        "description": "Ideal para proyectos pequeños y startups que comienzan",
+        "price": 500,
+        "devCount": "1 desarrollador",
+        "support": "3 meses",
+        "update": "3 meses",
+        "action": "Contactar",
+        "link": "#contact"
     },
     {
-        "title": "Company",
-        "description": "Relevant for multiple users, extended & premium support",
-        "price": 99,
-        "devCount": "10 developers",
-        "support": "24 months",
-        "update": "24 months",
-        "action": "Get Started",
-        "link": "/"
+        "title": "Profesional",
+        "description": "Perfecto para empresas en crecimiento con necesidades continuas",
+        "price": 1500,
+        "devCount": "2-3 desarrolladores",
+        "support": "12 meses",
+        "update": "12 meses",
+        "action": "Contactar",
+        "link": "#contact"
     },
     {
-        "title": "Enterprise",
-        "description": "Best for large scale uses and extended redistribution rights",
-        "price": 499,
-        "devCount": "100+ developers",
-        "support": "36 months",
-        "update": "36 months",
-        "action": "Get Started",
-        "link": "/"
+        "title": "Empresarial",
+        "description": "Soluciones completas para grandes empresas y proyectos complejos",
+        "price": 3500,
+        "devCount": "Equipo completo",
+        "support": "24 meses",
+        "update": "24 meses",
+        "action": "Contactar",
+        "link": "#contact"
     }
 ]
