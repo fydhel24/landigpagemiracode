@@ -75,68 +75,6 @@
     color: #f3f3f3 !important;
   }
 
-  /* @layer base {
-    * {
-      box-sizing: border-box;
-      font-family: "Grotesk", sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-size: 20px;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      line-height: 120%;
-      font-weight: 500;
-    }
-
-    h2 {
-      font-size: 2rem;
-      font-weight: 500;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      font-weight: 500;
-    }
-
-    h4 {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    @media (max-width: 640px) {
-      body {
-        font-size: 16px;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      h1 {
-        font-size: 2.688rem;
-      }
-
-      h2 {
-        font-size: 2.25rem;
-      }
-
-      h3 {
-        font-size: 1.625rem;
-      }
-
-      h4 {
-        font-size: 1.125rem;
-      }
-    }
-  } */
 
   @layer components {
     .btn-primary {
@@ -202,3 +140,37 @@
   font-size: 1.4rem;
   font-weight: bold;
 }
+/* Fuerza que TODO texto en modo oscuro sea blanco, sobre Tailwind */
+.dark a,
+.dark span,
+.dark p,
+.dark li,
+.dark div,
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: white !important;
+}
+/* Animación de subrayado desde el centro */
+.nav-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+
+  width: 0;
+  height: 2px;
+
+  background: linear-gradient(90deg, #ff7a00, #a020f0, #00f0ff); /* degradado naranja-lila-cyan */
+  transform: translateX(-50%);
+  
+  transition: width 0.35s ease;
+}
+
+.nav-underline:hover::after {
+  width: 100%;
+}
+
