@@ -1,0 +1,148 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Section from "../../components/sections/Section.astro";
+import { services } from "../../data/services";
+import { Image } from "astro:assets";
+import Contact from "../../components/sections/Contact.astro";
+import Process from "../../components/sections/Process.astro";
+
+export async function getStaticPaths() {
+    return services.map((service) => ({
+        params: { id: service.id },
+        props: { service },
+    }));
+}
+
+const { id } = Astro.params;
+const service = services.find((s) => s.id === id);
+
+if (!service) {
+    return Astro.redirect("/404");
+}
+
+const { titleTop, titleBottom, description, features, img, alt } = service;
+---
+
+<MainLayout
+    title={`${titleTop} ${titleBottom} - Positivus`}
+    description={description}
+>
+    <!-- Full Screen Hero Banner -->
+    <div class="relative w-full h-[85vh] md:h-screen overflow-hidden">
+        <Image
+            src={img}
+            alt={alt}
+            class="w-full h-full object-cover object-center"
+            quality="high"
+            loading="eager"
+        />
+        <!-- Optional: Gradient overlay for better transition to content -->
+        <div
+            class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"
+        >
+        </div>
+    </div>
+
+    <Section id="service-detail">
+        <div class="mt-10 mb-20">
+            <a
+                href="/#services"
+                class="inline-flex items-center gap-2 text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white mb-8 transition-colors"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-left"
+                    ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"
+                    ></path></svg
+                >
+                Volver a Servicios
+            </a>
+
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                    <span
+                        class="bg-lime text-black px-2 rounded-md inline-block mb-2"
+                        >{titleTop}</span
+                    >
+                    <br />
+                    {titleBottom}
+                </h1>
+
+                <p
+                    class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed"
+                >
+                    {description}
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div
+                        class="bg-gray-100 dark:bg-gray-800 p-8 rounded-[45px] border border-gray-200 dark:border-gray-700"
+                    >
+                        <h3 class="text-2xl font-bold mb-6">
+                            Lo que incluimos
+                        </h3>
+                        <ul class="space-y-4">
+                            {
+                                features.map((feature) => (
+                                    <li class="flex items-start gap-4">
+                                        <div class="mt-1 bg-lime rounded-full p-1 flex-shrink-0">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="3"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                class="text-black"
+                                            >
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg>
+                                        </div>
+                                        <span class="text-lg font-medium">
+                                            {feature}
+                                        </span>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+
+                    <div
+                        class="flex flex-col justify-center items-start p-8 bg-black text-white rounded-[45px]"
+                    >
+                        <h3 class="text-3xl font-bold mb-4">
+                            ¿Listo para empezar?
+                        </h3>
+                        <p class="text-gray-300 mb-8 text-lg">
+                            Llevamos tu proyecto al siguiente nivel con nuestra
+                            experiencia y dedicación.
+                        </p>
+                        <a
+                            href="#contact"
+                            class="btn-primary inline-block bg-lime text-black px-8 py-4 rounded-xl hover:bg-lime/90 transition-colors text-lg font-bold w-full text-center"
+                        >
+                            Solicitar Presupuesto
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Section>
+
+    <Process />
+
+    <div id="contact">
+        <Contact />
+    </div>
+</MainLayout>
