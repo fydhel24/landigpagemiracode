@@ -5,50 +5,60 @@ import Linkedin from "../../assets/linkedin.svg";
 import Logo from "../../assets/logo-alt.svg";
 import Twitter from "../../assets/twitter.svg";
 
-const logos = [
+const socials = [
   { name: "Facebook", src: Facebook, link: "https://facebook.com" },
-  { name: "Linkedin", src: Linkedin, link: "https://linkedin.com" },
+  { name: "LinkedIn", src: Linkedin, link: "https://linkedin.com" },
   { name: "Twitter", src: Twitter, link: "https://twitter.com" },
 ];
 ---
 
 <section class="sm:px-5 footer-always-dark" id="footer">
   <div class="w-full mx-auto">
-    <div class="px-[15px] footer-bg text-gray py-[55px] lg:px-[60px] sm:rounded-t-[45px]">
-      <!-- Fila principal: Contacto + Redes -->
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-[66px]" id="footer-main">
-        <!-- Contactos (a la izquierda en lg) -->
-        <div class="flex flex-col w-full lg:w-[30%] text-center lg:text-start" id="footer-contact">
-          <h3 class="mb-5 text-center md:text-left text-2xl text-green">Contactos</h3>
-          <div class="flex flex-col justify-between gap-4">
-            <span>Email: miracode@gmail.com</span>
-            <span>Celular: +519 1234567</span>
-            <span class="lg:w-3/4">Dirección: Av/Arequipa 1234, Bolivia</span>
+    <div class="px-[15px] py-[55px] lg:px-[60px] sm:rounded-t-[45px] footer-bg text-gray">
+      <!-- Grid con 2 columnas (siempre centradas internamente) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start justify-items-center" id="footer-main">
+        <!-- Columna 1: Contacto (centrado) -->
+        <div class="flex flex-col items-center text-center max-w-lg" id="footer-contact">
+          <h3 class="mb-5 text-2xl text-green font-bold">Contacto</h3>
+          <div class="space-y-3">
+            <p><strong>Email:</strong> miracode@gmail.com</p>
+            <p><strong>Celular:</strong> +519 123 4567</p>
+            <p><strong>Dirección:</strong> Av. Arequipa 1234, Bolivia</p>
           </div>
         </div>
 
-        <!-- Redes sociales (a la derecha en lg) -->
-        <ul class="flex gap-5" id="footer-social">
-          {logos.map((logo) => (
-            <li class="footer-social-item">
-              <a href={logo.link.trim()} target="_blank">
-                <picture>
-                  <Image src={logo.src} alt={logo.name} />
-                </picture>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <!-- Columna 2: Redes sociales (centrado) -->
+        <div class="flex flex-col items-center text-center max-w-lg" id="footer-social">
+          <h3 class="mb-5 text-2xl text-green font-bold">Síguenos</h3>
+          <ul class="flex flex-wrap justify-center gap-5">
+            {socials.map((item) => (
+              <li key={item.name} class="footer-social-item flex flex-col items-center">
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex flex-col items-center gap-2 group"
+                >
+                  <span class="sr-only">{item.name}</span>
+                  <Image
+                    src={item.src}
+                    alt={`${item.name} logo`}
+                    class="w-10 h-10 transition-transform group-hover:scale-110"
+                  />
+                  <span class="text-sm font-medium">{item.name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      <!-- Separador -->
-      <div class="h-[1px] bg-gray mb-5" id="footer-separator"></div>
+      <!-- Separador centrado -->
+      <div class="h-[1px] bg-gray w-3/4 mx-auto my-6" id="footer-separator"></div>
 
-      <!-- Copyright (siempre centrado) -->
-      <div class="flex flex-col lg:flex-row h-20 justify-center items-center text-center" id="footer-copyright">
-        <span>
-          2025 Miracode - by Copiright
-        </span>
+      <!-- Copyright centrado -->
+      <div class="text-center" id="footer-copyright">
+        <span>© 2025 Miracode — by Copyright</span>
       </div>
     </div>
   </div>
@@ -57,14 +67,15 @@ const logos = [
 <script>
   import { gsap } from 'gsap';
 
-  // Animate footer on load
-  gsap.set('#footer-contact', { opacity: 0, x: -50 });
-  gsap.set('.footer-social-item', { opacity: 0, y: 20 });
-  gsap.set('#footer-separator', { scaleX: 0 });
-  gsap.set('#footer-copyright', { opacity: 0, y: 20 });
+  if (typeof window !== 'undefined') {
+    gsap.set('#footer-contact', { opacity: 0, y: 20 });
+    gsap.set('#footer-social', { opacity: 0, y: 20 });
+    gsap.set('#footer-separator', { scaleX: 0, transformOrigin: 'center' });
+    gsap.set('#footer-copyright', { opacity: 0, y: 20 });
 
-  gsap.to('#footer-contact', { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out' });
-  gsap.to('.footer-social-item', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1, delay: 0.2 });
-  gsap.to('#footer-separator', { scaleX: 1, duration: 0.8, ease: 'power2.out', delay: 0.5 });
-  gsap.to('#footer-copyright', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.7 });
+    gsap.to('#footer-contact', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' });
+    gsap.to('#footer-social', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: 0.15 });
+    gsap.to('#footer-separator', { scaleX: 1, duration: 0.8, ease: 'power2.out', delay: 0.3 });
+    gsap.to('#footer-copyright', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.5 });
+  }
 </script>
