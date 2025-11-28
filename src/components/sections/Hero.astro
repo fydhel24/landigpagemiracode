@@ -4,84 +4,80 @@ import { Image } from "astro:assets";
 import HeroIlust from "../../assets/pics/largo.png";
 ---
 
-<Section
-  id="home"
-  class="relative flex items-center justify-center min-h-[70vh] md:min-h-[80vh] overflow-hidden"
->
+<div class="relative w-full h-[85vh] md:h-screen overflow-hidden">
   <!-- Imagen de fondo -->
-  <Image
-    src={HeroIlust}
-    alt="Ilustración de desarrollo de software"
-    loading="eager"
-    class="absolute inset-0 w-full h-full object-cover"
-    width="1920"
-    height="1080"
-    quality={80}
-  />
+  <div class="absolute inset-0 z-0">
+    <Image
+      src={HeroIlust}
+      alt="Ilustración de desarrollo de software"
+      loading="eager"
+      width="1920"
+      height="1280"
+      quality={80}
+      class="w-full h-full object-cover"
+      fetchpriority="high"
+    />
+    <!-- Overlay oscuro -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+  </div>
 
-  <!-- Overlay para legibilidad -->
-  <div class="absolute inset-0 bg-black/20 z-0"></div>
-
-  <!-- ✅ Contenido con MÁS PADDING: xl:px-12 xl:py-16 → más aire interno -->
-  <div class="relative z-10 text-center px-6 py-10 md:px-8 md:py-12 xl:px-16 xl:py-16 md:text-left md:max-w-2xl lg:max-w-3xl">
-    <h1
-      class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white drop-shadow-lg"
-      id="hero-title"
-    >
-      Construimos el <span class="text-blue-600">futuro digital</span> de tu negocio
-    </h1>
-    <p
-      class="mt-6 mb-10 text-lg md:text-xl text-gray-100 max-w-3xl mx-auto md:mx-0 drop-shadow-md"
-      id="hero-description"
-    >
-      Desarrollamos páginas web, software a medida y experiencias digitales que impulsan tu crecimiento, optimizan procesos y conectan con todo el mundo.
-    </p>
-    <div id="hero-button">
-      <a
-        href="#contacto"
-        class="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium text-lg transition shadow-lg hover:shadow-xl"
+  <!-- Contenido principal -->
+  <div class="relative z-10 flex flex-col justify-center items-center w-full h-full px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl w-full text-center sm:text-left">
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-4 md:mb-6"
+        id="hero-title"
       >
-        Comenzar proyecto
-      </a>
+        Soluciones de <span class="bg-gradient-to-r from-miracode-purple to-miracode-cyan bg-clip-text text-transparent"
+          >software innovadoras</span
+        > 
+      </h1>
+    
+      <div id="hero-button" class="mt-4">
+        <a
+          href="#contact"
+          class="inline-block px-5 py-2.5 sm:px-7 sm:py-3.5 bg-gradient-to-r from-miracode-purple to-miracode-cyan hover:from-miracode-cyan hover:to-miracode-purple text-white rounded-xl font-medium text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+        >
+          Comenzar proyecto
+        </a>
+      </div>
     </div>
   </div>
-</Section>
+</div>
 
 <script>
   import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  if (typeof window !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
+  if (typeof window !== "undefined") {
+    // Wait for the DOM to be ready
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.set("#hero-title", { opacity: 0, y: 20 });
+      gsap.set("#hero-description", { opacity: 0, y: 20 });
+      gsap.set("#hero-button", { opacity: 0, y: 20 });
 
-  // Animate hero section on scroll
-  gsap.set('#hero-text', { opacity: 0, x: -50 });
-  gsap.set('#hero-image', { opacity: 0, x: 50 });
+      gsap.to("#hero-title", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.2,
+      });
 
-  gsap.to('#hero-text', {
-    opacity: 1,
-    x: 0,
-    duration: 1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '#hero',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
-    }
-  });
+      gsap.to("#hero-description", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.35,
+      });
 
-  gsap.to('#hero-image', {
-    opacity: 1,
-    x: 0,
-    duration: 1,
-    ease: 'power2.out',
-    delay: 0.3,
-    scrollTrigger: {
-      trigger: '#hero',
-      start: 'top 80%',
-      end: 'bottom 20%',
-      toggleActions: 'play none none reverse'
-    }
-  });
+      gsap.to("#hero-button", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.5,
+      });
+    });
+  }
 </script>
