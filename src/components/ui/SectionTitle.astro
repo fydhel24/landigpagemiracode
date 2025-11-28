@@ -1,1 +1,24 @@
-}
+---
+const { sectionTitle, description } = Astro.props;
+---
+
+<div class="flex flex-col items-center gap-6 mb-10">
+
+  <!-- Caja blanca a lo ancho de la pantalla -->
+  <div class="w-full flex justify-center">
+    <div class="w-full bg-white py-4 flex items-center justify-center relative">
+
+      <!-- Línea izquierda azul -->
+      <div class="h-[3px] bg-blue-500 flex-1"></div>
+
+      <!-- Texto centrado azul celeste -->
+      <span class="text-blue-600 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl px-2 sm:px-4 font-semibold break-words text-center">
+        {sectionTitle}
+      </span>
+
+      <!-- Línea derecha azul -->
+      <div class="h-[3px] bg-blue-500 flex-1"></div>
+
+    </div>
+  </div>
+</div>
