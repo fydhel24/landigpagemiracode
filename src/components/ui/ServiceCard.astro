@@ -6,43 +6,23 @@ import gob from "../../assets/icon6.svg";
 import wob from "../../assets/icon7.svg";
 
 const { index, titleTop, titleBottom, img, alt, link } = Astro.props;
+
+const bgImage = typeof img === 'string' ? img : img.src;
 ---
 
 <Card isUnderline={true}>
   <div
-    class="h-[300px] w-full sm:h-full lg:gap-[60px] grid custom-grid lg:grid-cols-2 lg:grid-rows-1 p-8 sm:p-[50px] rounded-[45px] bg-gradient-to-br from-blue-100 to-blue-300 dark:from-gray-700 dark:to-gray-800"
+    class="h-[500px] w-full  lg:gap-[60px] grid custom-grid lg:grid-cols-2 lg:grid-rows-1 p-8 sm:p-[50px] rounded-[45px] bg-cover bg-center bg-no-repeat text-white"
+    style={`background-image: url(${JSON.stringify(bgImage)})`}
   >
-    <h3 class="flex flex-col col-span-2 lg:col-span-1 justify-center">
-      <span class="w-fit text-blue-800 dark:text-blue-200 font-bold text-2xl sm:text-3xl lg:text-4xl">
-        {titleTop}
-      </span>
-      <span class="w-fit text-blue-800 dark:text-blue-200 font-bold text-2xl sm:text-3xl lg:text-4xl mt-1">
-        {titleBottom}
-      </span>
-    </h3>
-    <picture
-      class="w-full h-full row-span-1 order-1 lg:order-none lg:row-span-2 flex justify-center items-center"
-    >
-      <Image
-        src={img}
-        alt={alt}
-        class="h-[100px] w-auto sm:h-auto sm:w-3/4 object-cover"
-      />
-    </picture>
     <div class="flex items-end">
       <a href={link} class="flex items-center gap-3.5">
-        <Image src={gob} alt={alt} />
-        <span class="hidden sm:block font-medium text-gray-700 dark:text-gray-200">Más Información</span>
+        <Image src={gob} alt="Go" />
+        <span class="hidden sm:block font-medium">Más Información</span>
       </a>
     </div>
   </div>
 </Card>
-
-<style>
-  .custom-grid {
-    grid-template: auto auto;
-  }
-</style>
 
 <style>
   .custom-grid {
