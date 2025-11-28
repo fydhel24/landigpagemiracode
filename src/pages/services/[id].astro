@@ -20,7 +20,7 @@ if (!service) {
     return Astro.redirect("/404");
 }
 
-const { titleTop, titleBottom, description, features, img, alt } = service;
+const { titleTop, titleBottom, description, features, heroImg, alt } = service;
 ---
 
 <MainLayout
@@ -30,7 +30,7 @@ const { titleTop, titleBottom, description, features, img, alt } = service;
     <!-- Full Screen Hero Banner -->
     <div class="relative w-full h-[85vh] md:h-screen overflow-hidden">
         <Image
-            src={img}
+            src={heroImg}
             alt={alt}
             class="w-full h-full object-cover object-center"
             quality="high"

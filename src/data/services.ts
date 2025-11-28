@@ -1,9 +1,16 @@
-import webDevImg from "../assets/Banner/Disenoweb.webp";
-import softwareImg from "../assets/Banner/software.webp";
-import uiUxImg from "../assets/Banner/tienda.webp";
-import apiImg from "../assets/Banner/pedidos.webp";
-import cloudImg from "../assets/Banner/hosting.webp";
-import maintenanceImg from "../assets/Banner/movil.webp";
+import heroWebImg from "../assets/Banner/Disenoweb.webp";
+import heroSoftwareImg from "../assets/Banner/software.webp";
+import heroUiUxImg from "../assets/Banner/tienda.webp";
+import heroApiImg from "../assets/Banner/pedidos.webp";
+import heroCloudImg from "../assets/Banner/hosting.webp";
+import heroMaintenanceImg from "../assets/Banner/movil.webp";
+
+import cardWebImg from "../assets/BannerMovil/web.png";
+import cardSoftwareImg from "../assets/BannerMovil/software.png";
+import cardUiUxImg from "../assets/BannerMovil/tienda.png";
+import cardApiImg from "../assets/BannerMovil/pedidos.png";
+import cardCloudImg from "../assets/BannerMovil/hosting.png";
+import cardMaintenanceImg from "../assets/BannerMovil/movil.png";
 
 export const services = [
     {
@@ -11,7 +18,8 @@ export const services = [
         index: 1,
         titleTop: "Diseño de Sitios",
         titleBottom: "Web",
-        img: webDevImg,
+        img: cardWebImg,
+        heroImg: heroWebImg,
         alt: "Diseño Web Profesional",
         brief: "Creamos sitios web modernos, rápidos y optimizados para SEO.",
         description: "Transformamos tu presencia digital con diseños web impactantes y funcionales. Utilizamos las últimas tecnologías para garantizar que tu sitio no solo se vea increíble, sino que también convierta visitantes en clientes. Desde landing pages hasta portales corporativos complejos.",
@@ -22,7 +30,8 @@ export const services = [
         index: 2,
         titleTop: "Software a",
         titleBottom: "Medida",
-        img: softwareImg,
+        img: cardSoftwareImg,
+        heroImg: heroSoftwareImg,
         alt: "Desarrollo de Software a Medida",
         brief: "Soluciones de software personalizadas para optimizar tus procesos.",
         description: "Desarrollamos software a medida que se adapta perfectamente a las necesidades específicas de tu empresa. Automatizamos procesos, integramos sistemas y creamos herramientas que impulsan la eficiencia operativa y la productividad de tu equipo.",
@@ -33,7 +42,8 @@ export const services = [
         index: 3,
         titleTop: "Tiendas online",
         titleBottom: "E-commerce",
-        img: uiUxImg,
+        img: cardUiUxImg,
+        heroImg: heroUiUxImg,
         alt: "Desarrollo de Tiendas Online",
         brief: "Tiendas online que convierten visitantes en clientes.",
         description: "Lanza tu negocio al mundo digital con una tienda online potente y segura. Creamos experiencias de compra fluidas que maximizan las ventas. Expertos en plataformas como Shopify, WooCommerce y desarrollos a medida.",
@@ -44,7 +54,8 @@ export const services = [
         index: 4,
         titleTop: "Sistema de pedidos",
         titleBottom: "Online",
-        img: apiImg,
+        img: cardApiImg,
+        heroImg: heroApiImg,
         alt: "Sistema de Pedidos Online",
         brief: "Sistemas de pedidos eficientes para restaurantes y comercios.",
         description: "Moderniza tu negocio gastronómico o retail con un sistema de pedidos propio. Elimina comisiones de terceros y fideliza a tus clientes con una plataforma rápida, intuitiva y fácil de gestionar desde cualquier dispositivo.",
@@ -55,7 +66,8 @@ export const services = [
         index: 5,
         titleTop: "Servicio de Web",
         titleBottom: "Hosting",
-        img: cloudImg,
+        img: cardCloudImg,
+        heroImg: heroCloudImg,
         alt: "Servicios de Web Hosting",
         brief: "Alojamiento web seguro, rápido y confiable.",
         description: "Tu sitio web merece el mejor hogar. Ofrecemos soluciones de hosting de alto rendimiento, escalables y seguras. Nos encargamos de la infraestructura técnica para que tú puedas concentrarte en hacer crecer tu negocio.",
@@ -66,7 +78,8 @@ export const services = [
         index: 6,
         titleTop: "Desarrollo De Aplicaciones",
         titleBottom: "Moviles",
-        img: maintenanceImg,
+        img: cardMaintenanceImg,
+        heroImg: heroMaintenanceImg,
         alt: "Desarrollo de Apps Móviles",
         brief: "Apps móviles nativas e híbridas para iOS y Android.",
         description: "Lleva tu negocio al bolsillo de tus clientes. Diseñamos y desarrollamos aplicaciones móviles nativas e híbridas que ofrecen experiencias de usuario excepcionales. Desde la conceptualización hasta la publicación en App Store y Google Play.",
