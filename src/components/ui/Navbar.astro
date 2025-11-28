@@ -46,9 +46,13 @@ const navButton = { href: '#', label: 'Contactanos' };
                 </a>
               </li>
             ))}
-            <div class="lg:hidden flex items-center justify-center mt-3 gap-4">
-              <a 
-                class="mobile-nav-link px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" 
+            <div class="lg:hidden flex flex-col items-center justify-center mt-3 gap-4">
+              <button id="theme-toggle-mobile" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-medium">
+                <span id="sun-text-mobile">Light</span>
+                <span id="moon-text-mobile" class="hidden">Dark</span>
+              </button>
+              <a
+                class="mobile-nav-link px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex"
                 href={navButton.href}
                 data-close-menu="true"
               >
@@ -102,27 +106,39 @@ const navButton = { href: '#', label: 'Contactanos' };
 
   // Dark mode toggle
   const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
   const sunText = document.getElementById('sun-text');
   const moonText = document.getElementById('moon-text');
+  const sunTextMobile = document.getElementById('sun-text-mobile');
+  const moonTextMobile = document.getElementById('moon-text-mobile');
 
   // Check for saved theme preference or default to light mode
   const currentTheme = localStorage.getItem('theme') || 'light';
 
   if (currentTheme === 'dark') {
     document.documentElement.classList.add('dark');
-    sunText.classList.add('hidden');
-    moonText.classList.remove('hidden');
+    sunText?.classList.add('hidden');
+    moonText?.classList.remove('hidden');
+    sunTextMobile?.classList.add('hidden');
+    moonTextMobile?.classList.remove('hidden');
   } else {
     document.documentElement.classList.remove('dark');
-    sunText.classList.remove('hidden');
-    moonText.classList.add('hidden');
+    sunText?.classList.remove('hidden');
+    moonText?.classList.add('hidden');
+    sunTextMobile?.classList.remove('hidden');
+    moonTextMobile?.classList.add('hidden');
   }
 
-  themeToggle.addEventListener('click', () => {
+  const toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
-    sunText.classList.toggle('hidden');
-    moonText.classList.toggle('hidden');
-  });
+    sunText?.classList.toggle('hidden');
+    moonText?.classList.toggle('hidden');
+    sunTextMobile?.classList.toggle('hidden');
+    moonTextMobile?.classList.toggle('hidden');
+  };
+
+  themeToggle?.addEventListener('click', toggleTheme);
+  themeToggleMobile?.addEventListener('click', toggleTheme);
 </script>

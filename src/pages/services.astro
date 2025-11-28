@@ -149,8 +149,8 @@ const services = [
 
           <div class="grid md:grid-cols-2 gap-10 px-4">
             <div>
-              <h3 class="text-2xl font-bold mb-4">Qué ofrecemos</h3>
-              <p class="mb-6 text-gray-600">{service.description}</p>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Qué ofrecemos</h3>
+              <p class="mb-6 text-gray-600 dark:text-gray-300">{service.description}</p>
               <a
                 href={service.link}
                 class="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition font-medium"
@@ -162,15 +162,15 @@ const services = [
               </a>
             </div>
 
-            <div class="bg-blue-50 rounded-2xl p-8">
-              <h3 class="text-2xl font-bold mb-4">Beneficios</h3>
+            <div class="bg-blue-50 dark:bg-gray-700 rounded-2xl p-8">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Beneficios</h3>
               <ul class="space-y-4">
                 {service.benefits.map(benefit => (
                   <li class="flex items-start">
-                    <svg class="mr-2 w-5 h-5 mt-1 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="mr-2 w-5 h-5 mt-1 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                     </svg>
-                    <span>{benefit}</span>
+                    <span class="text-gray-700 dark:text-gray-200">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -182,11 +182,11 @@ const services = [
 
     <div class="mt-24 text-center" id="services-cta">
       <Card>
-        <div class="p-10 md:p-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        <div class="p-10 md:p-16 bg-white dark:bg-gray-800">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
             ¿Listo para construir tu solución tecnológica?
           </h2>
-          <p class="mb-10 text-xl text-gray-600 max-w-2xl mx-auto">
+          <p class="mb-10 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Cuéntanos tu idea. Desarrollaremos una propuesta técnica personalizada, con estimación de tiempos, tecnologías y pasos a seguir.
           </p>
           <a
