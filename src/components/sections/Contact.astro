@@ -5,11 +5,26 @@ import Section from "./Section.astro";
 ---
 
 <Section id="contact">
-  <div class="mb-[140px] relative">
-    <SectionTitle
-      sectionTitle="Contact Us"
-      description="Connect with Us: Let's Discuss Your Digital Marketing Needs"
-    />
-    <Form />
+  <div class="mb-16" id="contact-container">
+    <div id="contact-title">
+      <SectionTitle
+        sectionTitle="Contacto"
+        description="¿Tienes una idea, necesitas una solución tecnológica o quieres saber más sobre nuestros servicios? Escríbenos."
+      />
+    </div>
+    <div id="contact-form">
+      <Form />
+    </div>
   </div>
 </Section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Animate contact section
+  gsap.set('#contact-title', { opacity: 0, y: 50 });
+  gsap.set('#contact-form', { opacity: 0, y: 50 });
+
+  gsap.to('#contact-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
+  gsap.to('#contact-form', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.3 });
+</script>

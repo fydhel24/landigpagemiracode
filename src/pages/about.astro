@@ -4,22 +4,28 @@ import Sponsors from "../components/sections/Sponsors.astro";
 import Services from "../components/sections/Services.astro";
 ---
 
-<MainLayout title="About us">
+<MainLayout title="Sobre Nosotros">
 	<main class="space-y-20">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
-            <div class="relative flex flex-col-reverse items-center md:flex-row" id="hero">
-                <div class="row items-center py-5 md:pb-20 md:pt-10">
-                    <div class="text-center space-y-10">
-                        <h2 class="text-5xl font-medium leading-none md:text-6xl">We Navigate the <br> digital landscape <br> for success</h2>
-                        <p class="mt-6 mb-8  text-xl font-normal leading-7 sm:mb-12">Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
-                        <a class="px-9 py-5 bg-zinc-900 hover:bg-white text-white hover:text-black border rounded-2xl justify-items-center md:justify-items-start gap-2.5 inline-flex" rel="noopener noreferrer"  href="https://github.com/manulthanura/Positivus" target="_blank">
-                            <h2 class="text-center text-xl font-normal leading-7">Book a consultation</h2>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <Sponsors />
-        <Services />
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-3">
+      <div class="text-center space-y-8">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+          Construimos soluciones digitales<br />
+          <span class="text-blue-600">hechas a la medida</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          En Miracode, transformamos ideas en software robusto, escalable y seguro. 
+          Desarrollamos aplicaciones web, sistemas personalizados y experiencias digitales 
+          que resuelven problemas reales y potencian tu negocio.
+        </p>
+        <a
+          href="#contacto"
+          class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl shadow hover:shadow-md transition inline-block"
+        >
+          Comenzar proyecto
+        </a>
+      </div>
+    </div>
+    <Sponsors />
+    <Services />
 	</main>
 </MainLayout>

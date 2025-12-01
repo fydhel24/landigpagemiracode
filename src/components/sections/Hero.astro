@@ -1,23 +1,83 @@
 ---
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
-import HeroIlust from "../../assets/pics/hero.svg";
+import HeroIlust from "../../assets/pics/largo.png";
 ---
 
-<Section id="home">
-<div class="relative flex flex-col-reverse items-center md:flex-row" id="hero">
-    <div class="row items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
-        <div class="text-left space-y-3">
-            <h1 class="text-4xl font-medium leading-none md:text-6xl text-center md:text-left">Navigating the <br> digital landscape <br> for success</h1>
-            <p class="mt-6 mb-8 text-lg font-normal leading-7 sm:mb-12 text-center md:text-left md:pr-12">Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
-            <div class="w-full justify-center md:justify-start items-center inline-flex">
-                <a href="https://github.com/manulthanura/Positivus" target="_blank" class="px-8 py-5 bg-zinc-900 hover:bg-white rounded-2xl text-center text-white hover:text-black border text-xl font-normal leading-7">Book a consultation
-                </a>
-            </div>
-        </div>
+<div class="relative w-full h-[85vh] md:h-screen overflow-hidden">
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0 z-0">
+    <Image
+      src={HeroIlust}
+      alt="Ilustración de desarrollo de software"
+      loading="eager"
+      width="1920"
+      height="1280"
+      quality={80}
+      class="w-full h-full object-cover"
+      fetchpriority="high"
+    />
+    <!-- Overlay oscuro -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="relative z-10 flex flex-col justify-center items-center w-full h-full px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl w-full text-center sm:text-left">
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-4 md:mb-6"
+        id="hero-title"
+      >
+        Soluciones de <span class="bg-gradient-to-r from-miracode-purple to-miracode-cyan bg-clip-text text-transparent"
+          >software innovadoras</span
+        > 
+      </h1>
+    
+      <div id="hero-button" class="mt-4">
+        <a
+          href="#contact"
+          class="inline-block px-5 py-2.5 sm:px-7 sm:py-3.5 bg-gradient-to-r from-miracode-purple to-miracode-cyan hover:from-miracode-cyan hover:to-miracode-purple text-white rounded-xl font-medium text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+        >
+          Comenzar proyecto
+        </a>
+      </div>
     </div>
-    <div class="flex items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
-        <Image src={HeroIlust} alt="Hero Ilustration" loading="eager" />
-    </div>
+  </div>
 </div>
-</Section>
+
+<script>
+  import { gsap } from "gsap";
+
+  if (typeof window !== "undefined") {
+    // Wait for the DOM to be ready
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.set("#hero-title", { opacity: 0, y: 20 });
+      gsap.set("#hero-description", { opacity: 0, y: 20 });
+      gsap.set("#hero-button", { opacity: 0, y: 20 });
+
+      gsap.to("#hero-title", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.2,
+      });
+
+      gsap.to("#hero-description", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.35,
+      });
+
+      gsap.to("#hero-button", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.5,
+      });
+    });
+  }
+</script>

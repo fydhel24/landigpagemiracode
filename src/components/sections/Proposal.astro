@@ -6,28 +6,43 @@ import Section from "./Section.astro";
 import propImg from "../../assets/pics/proposal-pic.png";
 ---
 
-<Section>
+<Section id="proposal">
   <Card>
-    <div
-      class="flex bg-[#F3F3F3] rounded-[45px] p-[60px] relative mt-[123px] mb-[163px]"
-    >
-      <div class="w-full md:w-[40%] flex flex-col gap-[26px]">
-        <h2 class="text-3xl font-medium">Let's make things happen</h2>
-        <p>
-          Contact us today to learn more about how our digital marketing
-          services can help your business grow and succeed online.
+    <div class="flex bg-gray-50 rounded-[40px] p-8 md:p-12 relative mt-12 mb-16" id="proposal-card">
+      <div class="w-full md:w-2/5 flex flex-col gap-6" id="proposal-text">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900" id="proposal-title">
+          ¿Listo para construir tu próxima solución digital?
+        </h2>
+        <p class="text-gray-600 leading-relaxed" id="proposal-description">
+          Cuéntanos tu idea. Desarrollaremos una propuesta técnica personalizada,
+          con estimación de tiempos, tecnologías recomendadas y pasos a seguir.
         </p>
-        <button class="btn-primary">Get your free proposal</button>
+        <a
+          href="#contacto"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium w-fit transition shadow hover:shadow-md"
+          id="proposal-button"
+        >
+          Recibir propuesta gratuita
+        </a>
       </div>
-      <picture
-        class="hidden md:flex absolute right-[-10%] lg:right-0 top-[-15%] h-[450px] items-center justify-center"
-      >
+      <div class="hidden md:flex absolute -right-8 lg:right-0 -top-10 lg:-top-6 h-[300px] lg:h-[400px]" id="proposal-image">
         <Image
           src={propImg}
-          alt="This is an illustration"
-          class="hidden md:flex lg:h-full lg:w-auto"
+          alt="Ilustración de desarrollo de software y colaboración tecnológica"
+          class="h-full w-auto object-contain"
         />
-      </picture>
+      </div>
     </div>
   </Card>
 </Section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Animate proposal section
+  gsap.set('#proposal-card', { opacity: 0, y: 50 });
+  gsap.set('#proposal-image', { opacity: 0, x: 50 });
+
+  gsap.to('#proposal-card', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+  gsap.to('#proposal-image', { opacity: 1, x: 0, duration: 1, ease: 'power2.out', delay: 0.5 });
+</script>

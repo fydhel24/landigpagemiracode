@@ -1,38 +1,38 @@
 [
     {
         "index": 1,
-        "name": "John Smith",
-        "role": "Marketing dierector at XYZ",
-        "comment": "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."
+        "name": "Carlos Miranda",
+        "role": "Gerente General - Importadora Miranda",
+        "comment": "Miracode transformó completamente nuestra operación con su sistema de tienda online. Ahora tenemos control total de nuestro inventario, las ventas se procesan automáticamente y nuestros clientes pueden comprar 24/7. El sistema de verificación de pagos y almacén ha optimizado todos nuestros procesos. Excelente trabajo."
     },
     {
         "index": 2,
-        "name": "Jane Doe",
-        "role": "CEO at ABC",
-        "comment": "We chose Positivus to help us with our SEO and PPC campaigns and have been very impressed with their results. They are knowledgeable, responsive, and truly care about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."
+        "name": "Ana Rodríguez",
+        "role": "Directora de Producción - Admus",
+        "comment": "El sistema de calendario para influencers que desarrolló Miracode ha sido un cambio radical para nuestra agencia. Ahora nuestros influencers pueden ver fácilmente sus horarios, ubicaciones de empresas y coordinar sus visitas sin confusiones. La organización mejoró un 200%. Totalmente recomendados."
     },
     {
         "index": 3,
-        "name": "Alice Johnson",
-        "role": "Owner at 123",
-        "comment": "I recently started working with Positivus and have been very impressed with their professionalism and expertise. They have helped me increase my online visibility and generate more leads for my business. I highly recommend Positivus to anyone looking to improve their online marketing strategy."
+        "name": "Roberto Afios",
+        "role": "Director Comercial - Importadora Afios",
+        "comment": "Trabajar con Miracode fue la mejor decisión para digitalizar nuestro negocio. Su equipo entendió perfectamente nuestras necesidades y creó una tienda online completa con gestión de pagos, almacén y reportes. Las ventas online ahora representan el 40% de nuestro negocio total."
     },
     {
         "index": 4,
-        "name": "Bob Brown",
-        "role": "Dierector at XYZ",
-        "comment": "Positivus has been a great partner for our company. They are knowledgeable, responsive, and truly care about the success of our business. We have seen a significant increase in website traffic and leads as a result of their efforts. I highly recommend Positivus to any company looking to grow their online presence."
+        "name": "María Gonzales",
+        "role": "Emprendedora - Ventas TikTok Live",
+        "comment": "El sistema de pedidos para TikTok Live que me desarrollaron es increíble. Ahora puedo gestionar cientos de pedidos durante mis transmisiones en vivo, organizarlos por ubicación y hacer seguimiento de todo. Mis ventas se triplicaron gracias a la eficiencia del sistema."
     },
     {
         "index": 5,
-        "name": "Gupta Patel",
-        "role": "Content creator",
-        "comment": "I have been working with Positivus for the past year and have been very impressed with their professionalism and expertise. They have helped me increase my online visibility and generate more leads for my business. I highly recommend Positivus to anyone looking to improve their online marketing strategy."
+        "name": "Luis Vargas",
+        "role": "Gerente de Operaciones",
+        "comment": "Miracode nos desarrolló un sistema de Gift Cards que nuestros clientes aman. Es fácil de usar, seguro y nos ha abierto un nuevo canal de ventas. El panel administrativo nos permite tener control total de todas las tarjetas emitidas. Muy profesionales."
     },
     {
         "index": 6,
-        "name": "Sara Johnson",
-        "role": "Freelancer",
-        "comment": "Positivus made a huge difference in our online presence. They are knowledgeable, responsive, and truly care about the success of our business. We have seen a significant increase in website traffic and leads as a result of their efforts. I highly recommend Positivus to any company looking to grow their online presence."
+        "name": "Patricia Flores",
+        "role": "Coordinadora de Proyectos",
+        "comment": "El calendario de tareas que implementó Miracode mejoró la productividad de nuestro equipo significativamente. Ahora todos saben qué hacer, cuándo y quién es responsable. Los recordatorios automáticos aseguran que nada se olvide. Una herramienta indispensable."
     }
 ]

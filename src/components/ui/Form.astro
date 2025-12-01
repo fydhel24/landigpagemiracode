@@ -1,135 +1,147 @@
 ---
 import { Image } from "astro:assets";
-import decorForm from "../../assets/pics/contact-pic.png";
+import decorForm from "../../assets/pics/logo1.png";
 ---
 
-<div
-  class="flex relative justify-start items-center p-[60px] bg-[#F3F3F3] rounded-[45px] overflow-hidden"
->
-  <form class="bg-gray sm:p-6 h-full w-full lg:max-w-lg">
-    <div class="flex flex-col sm:flex-row gap-[35px] sm:items-center mb-10">
-      <div class="flex items-center gap-[14px]">
+<div class="relative bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden flex flex-col lg:flex-row">
+  <!-- Formulario -->
+  <form
+    action="https://formspree.io/f/TU_FORM_ID"
+    method="POST"
+    class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm p-6 md:p-8 max-w-lg w-full"
+  >
+    <div class="flex flex-col sm:flex-row gap-4 mb-6">
+      <div class="flex items-center gap-3">
         <input
-          type="checkbox"
-          id="checkbox1"
-          name="checkbox1"
-          class="form-checkbox text-black"
+          type="radio"
+          id="inquiry"
+          name="type"
+          value="consulta"
+          class="radio-tech"
+          checked
         />
-        <label for="checkbox1" class="text-black">Say Hi</label>
+        <label for="inquiry" class="text-gray-800 dark:text-gray-200 font-medium">Consulta técnica</label>
       </div>
-      <div class="flex items-center gap-[14px]">
+      <div class="flex items-center gap-3">
         <input
-          type="checkbox"
-          id="checkbox2"
-          name="checkbox2"
-          class="form-checkbox text-black"
+          type="radio"
+          id="quote"
+          name="type"
+          value="cotizacion"
+          class="radio-tech"
         />
-        <label for="checkbox2" class="flex items-center text-black"
-          >Get a Quote</label
-        >
+        <label for="quote" class="text-gray-800 dark:text-gray-200 font-medium">Cotización de proyecto</label>
       </div>
     </div>
 
-    <div class="mb-4">
-      <label for="name" class="block text-black mb-2">Name*</label>
+    <div class="mb-5">
+      <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Nombre*</label>
       <input
         type="text"
         id="name"
         name="name"
-        placeholder="Name"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
+        required
+        placeholder="Tu nombre"
+        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-600 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition placeholder-gray-500 dark:placeholder-gray-400"
       />
     </div>
 
-    <div class="mb-4">
-      <label for="email" class="block text-black mb-2">Email*</label>
+    <div class="mb-5">
+      <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Email*</label>
       <input
         type="email"
         id="email"
         name="email"
-        placeholder="Email"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
+        required
+        placeholder="tu@email.com"
+        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-600 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition placeholder-gray-500 dark:placeholder-gray-400"
       />
     </div>
 
-    <div class="mb-4">
-      <label for="message" class="block text-black mb-2">Message*</label>
+    <div class="mb-6">
+      <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2 font-medium">Mensaje*</label>
       <textarea
         id="message"
         name="message"
-        placeholder="Message"
-        class="w-full px-[30px] py-[18px] border border-black rounded-[14px] text-black outline-none"
+        required
+        placeholder="Cuéntanos sobre tu proyecto, necesidades o idea..."
+        rows="5"
+        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-600 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition placeholder-gray-500 dark:placeholder-gray-400"
       ></textarea>
     </div>
 
-    <button type="submit" name="submit" class="btn-primary w-full">Send</button>
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-xl transition shadow hover:shadow-md"
+    >
+      Enviar mensaje
+    </button>
   </form>
-  <picture class="absolute right-[-25%] top-[2%] bottom-[2%] hidden lg:block">
-    <Image src={decorForm} alt="decor" />
-  </picture>
+
+  <!-- Ilustración decorativa -->
+  <div class="hidden lg:block absolute top-0 right-0 bottom-0 w-1/2">
+  <Image
+    src={decorForm}
+    alt="Ilustración decorativa de código y tecnología"
+    class="h-full w-full object-contain"
+  />
 </div>
+
+</div>
+
+
 <style>
-  .form-checkbox {
+  .radio-tech {
     appearance: none;
-    width: 28px;
-    height: 28px;
-    border: 1px solid #000;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3b82f6;
     border-radius: 50%;
     outline: none;
     cursor: pointer;
     position: relative;
+    transition: all 0.2s ease;
   }
 
-  .form-checkbox:before {
+  .radio-tech:checked {
+    border-color: #3b82f6;
+  }
+
+  .radio-tech:checked::before {
     content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
     position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--green);
-    transform: scale(0);
-    transition: transform 0.1s ease-in-out;
-  }
-
-  .form-checkbox:checked:before {
-    transform: scale(0.6);
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
   }
 </style>
+
 <script>
-  function formSetup() {
-    var cb1 = document.getElementById("checkbox1") as HTMLInputElement;
-    var cb2 = document.getElementById("checkbox2") as HTMLInputElement;
-    var message = document.getElementById("message") as HTMLInputElement;
+  // Funcionalidad: actualizar mensaje al cambiar opción
+  function setupForm() {
+    const quoteRadio = document.getElementById('quote') as HTMLInputElement;
+    const inquiryRadio = document.getElementById('inquiry') as HTMLInputElement;
+    const messageField = document.getElementById('message') as HTMLTextAreaElement;
 
-    if (cb1 && cb2) {
-      cb1.checked = true;
+    if (!quoteRadio || !inquiryRadio || !messageField) return;
 
-      cb2.addEventListener("change", function () {
-        if (cb2.checked) {
-          cb1.checked = false;
-          message.value =
-            "We're interested in your services! Please contact us";
-        } else {
-          message.value = "";
-          cb1.checked = true;
-        }
-      });
-      cb1.addEventListener("change", function () {
-        if (cb1.checked) {
-          cb2.checked = false;
-          message.value = "";
-        } else {
-          cb2.checked = true;
-          message.value =
-            "We're interested in your services! Please contact us";
-        }
-      });
-    }
+    quoteRadio.addEventListener('change', () => {
+      if (quoteRadio.checked) {
+        messageField.value = messageField.value || "Estamos interesados en desarrollar un proyecto. ¿Podrían enviarnos una cotización? Gracias.";
+      }
+    });
+
+    inquiryRadio.addEventListener('change', () => {
+      if (inquiryRadio.checked && messageField.value.includes("cotización")) {
+        messageField.value = "";
+      }
+    });
   }
 
-  formSetup();
-  document.addEventListener("astro:after-swap", formSetup);
+  setupForm();
+  document.addEventListener('astro:after-swap', setupForm);
 </script>

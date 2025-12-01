@@ -5,13 +5,26 @@ import Section from "./Section.astro";
 ---
 
 <Section id="testimonials">
-  <div class="mt-20">
-    <SectionTitle
-      sectionTitle="Testimonials"
-      description="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
-    />
-    <div class="rounded-[45px] bg-dark mb-[150px] text-gray">
+  <div class="mt-20" id="testimonials-container">
+    <div id="testimonials-title">
+      <SectionTitle
+        sectionTitle="Testimonials"
+        description="Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services"
+      />
+    </div>
+    <div class="rounded-[45px] bg-dark mb-[150px] text-gray" id="testimonials-slider">
       <SwiperSlider />
     </div>
   </div>
 </Section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Animate testimonials section
+  gsap.set('#testimonials-title', { opacity: 0, y: 50 });
+  gsap.set('#testimonials-slider', { opacity: 0, scale: 0.9 });
+
+  gsap.to('#testimonials-title', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
+  gsap.to('#testimonials-slider', { opacity: 1, scale: 1, duration: 1, ease: 'power2.out', delay: 0.3 });
+</script>

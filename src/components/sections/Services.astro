@@ -2,85 +2,82 @@
 import SectionTitle from "../ui/SectionTitle.astro";
 import ServiceCard from "../ui/ServiceCard.astro";
 import Section from "./Section.astro";
+import { services } from "../../data/services";
 
-import c1 from "../../assets/pics/card-pic1.png";
-import c2 from "../../assets/pics/card-pic2.png";
-import c3 from "../../assets/pics/card-pic3.png";
-import c4 from "../../assets/pics/card-pic4.png";
-import c5 from "../../assets/pics/card-pic5.png";
-import c6 from "../../assets/pics/card-pic6.png";
-
-const cards = [
-  {
-    index: 1,
-    titleTop: "Search Engine",
-    titleBottom: "Optimization",
-    img: c1,
-    alt: "SEO",
-    link: "https://google.com",
-  },
-  {
-    index: 2,
-    titleTop: "Pay-per-click",
-    titleBottom: "advertising",
-    img: c2,
-    alt: "SEO",
-    link: "https://google.com",
-  },
-  {
-    index: 3,
-    titleTop: "Social Media",
-    titleBottom: "Marketing",
-    img: c3,
-    alt: "SEO",
-    link: "https://google.com",
-  },
-  {
-    index: 1,
-    titleTop: "Email",
-    titleBottom: "Marketing",
-    img: c4,
-    alt: "SEO",
-    link: "https://google.com",
-  },
-  {
-    index: 2,
-    titleTop: "Content",
-    titleBottom: "Creation",
-    img: c5,
-    alt: "SEO",
-    link: "https://google.com",
-  },
-  {
-    index: 3,
-    titleTop: "Analytics and",
-    titleBottom: "Tracking",
-    img: c6,
-    alt: "SEO",
-    link: "https://google.com",
-  },
-];
+const cards = services.map((service) => ({
+  ...service,
+  link: `/services/${service.id}`,
+}));
 
 const description =
-  "At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include";
+  "Creamos soluciones tecnológicas integrales pensadas para resolver tus desafíos digitales, mejorar la eficiencia de tu negocio y ofrecer experiencias excepcionales a tus usuarios.";
 ---
 
 <Section id="services">
-  <div class="mt-[140px] mb-5">
-    <SectionTitle sectionTitle="Services" description={description} />
-    <div class="grid lg:grid-cols-2 lg:grid-rows-3 gap-10">
+  <div class="mt-16 mb-10" id="services-container">
+    <div id="services-title">
+      <SectionTitle
+        sectionTitle="Nuestros Servicios"
+        description={description}
+      />
+    </div>
+    <div
+      class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+      id="services-grid"
+    >
       {
         cards.map((card) => (
-          <ServiceCard
-            index={card.index}
-            titleTop={card.titleTop}
-            titleBottom={card.titleBottom}
-            img={card.img}
-            alt={card.alt}
-            link={card.link}
-          />
+          <div class="service-card">
+            <ServiceCard
+              index={card.index}
+              titleTop={card.titleTop}
+              titleBottom={card.titleBottom}
+              img={card.img}
+              alt={card.alt}
+              link={card.link}
+            />
+          </div>
         ))
       }
     </div>
   </div>
 </Section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate services section on scroll
+  gsap.set("#services-title", { opacity: 0, y: 50 });
+  gsap.set(".service-card", { opacity: 0, y: 50 });
+
+  gsap.to("#services-title", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#services-container",
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none none reverse",
+    },
+  });
+
+  gsap.to(".service-card", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    stagger: 0.2,
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: "#services-container",
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none none reverse",
+    },
+  });
+</script>
