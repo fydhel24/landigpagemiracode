@@ -5,12 +5,12 @@ import heroGiftCardImg from "../assets/Banner/pedidos.webp";
 import heroTiktokImg from "../assets/Banner/movil.webp";
 import heroTasksImg from "../assets/Banner/hosting.webp";
 
-import cardEcommerceImg from "../assets/BannerMovil/tienda.png";
-import cardSoftwareImg from "../assets/BannerMovil/software.png";
-import cardInfluencerImg from "../assets/BannerMovil/web.png";
-import cardGiftCardImg from "../assets/BannerMovil/pedidos.png";
-import cardTiktokImg from "../assets/BannerMovil/movil.png";
-import cardTasksImg from "../assets/BannerMovil/hosting.png";
+import cardEcommerceImg from "../assets/BannerMovil/tienda.webp";
+import cardSoftwareImg from "../assets/BannerMovil/software.webp";
+import cardInfluencerImg from "../assets/BannerMovil/web.webp";
+import cardGiftCardImg from "../assets/BannerMovil/pedidos.webp";
+import cardTiktokImg from "../assets/BannerMovil/movil.webp";
+import cardTasksImg from "../assets/BannerMovil/hosting.webp";
 
 export const services = [
     {
