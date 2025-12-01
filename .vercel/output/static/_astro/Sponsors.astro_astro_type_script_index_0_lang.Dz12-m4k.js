@@ -1,0 +1,1 @@
+import{g as o}from"./index.DKtf60Sy.js";o.set("#sponsors-title",{opacity:0,y:50});o.set(".sponsor-logo",{opacity:0,scale:.8});o.to("#sponsors-title",{opacity:1,y:0,duration:.8,ease:"power2.out"});o.to(".sponsor-logo",{opacity:1,scale:1,duration:.6,ease:"back.out(1.7)",stagger:.1,delay:.5});

@@ -1,0 +1,1 @@
+import{g as o}from"./index.DKtf60Sy.js";const e=document.querySelector(".icon-svg");e&&(e.addEventListener("mouseenter",()=>{o.to(e,{scale:1.2,duration:.3,ease:"power2.out"})}),e.addEventListener("mouseleave",()=>{o.to(e,{scale:1,duration:.3,ease:"power2.out"})}));

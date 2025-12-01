@@ -1,0 +1,1 @@
+import{g as t}from"./index.DKtf60Sy.js";t.set("#contact-title",{opacity:0,y:50});t.set("#contact-form",{opacity:0,y:50});t.to("#contact-title",{opacity:1,y:0,duration:.8,ease:"power2.out"});t.to("#contact-form",{opacity:1,y:0,duration:.8,ease:"power2.out",delay:.3});

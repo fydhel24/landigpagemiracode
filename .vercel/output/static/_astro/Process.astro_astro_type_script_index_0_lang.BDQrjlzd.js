@@ -1,0 +1,1 @@
+import{g as o}from"./index.DKtf60Sy.js";o.set("#process-title",{opacity:0,y:50});o.set("#process-accordion",{opacity:0,y:50});o.to("#process-title",{opacity:1,y:0,duration:.8,ease:"power2.out"});o.to("#process-accordion",{opacity:1,y:0,duration:.8,ease:"power2.out",delay:.3});
