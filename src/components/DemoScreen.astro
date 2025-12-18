@@ -1,0 +1,19 @@
+---
+// src/components/DemoScreen.astro
+interface Props {
+  htmlContent: string;
+}
+const { htmlContent } = Astro.props;
+---
+<iframe
+  srcdoc={htmlContent}
+  class="w-full h-full border-none"
+  title="Demo Preview"
+  sandbox="allow-scripts allow-same-origin allow-forms"
+></iframe>
+
+<style>
+  iframe {
+    background: white; /* Evita transparencias raras antes de cargar */
+  }
+</style>

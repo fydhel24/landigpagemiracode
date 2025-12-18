@@ -1,0 +1,778 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import DemoScreen from "../components/DemoScreen.astro";
+
+// Definimos el HTML de la demo (Asegúrate de pegar el código completo aquí dentro)
+const saborBoliviaHTML = `
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sabor de Bolivia</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#36e27b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                        "surface-dark": "#1A2C22",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden antialiased">
+<!-- Sticky Navigation -->
+<nav class="sticky top-0 z-50 w-full border-b border-[#29382f] bg-[#112117]/90 backdrop-blur-md">
+<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<!-- Logo -->
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background-dark">
+<span class="material-symbols-outlined" style="font-size: 20px;">restaurant</span>
+</div>
+<h2 class="text-white text-lg font-bold tracking-tight">Sabor de Bolivia</h2>
+</div>
+<!-- Desktop Links -->
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-white hover:text-primary transition-colors text-sm font-medium" href="#menu">Menu</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium" href="#story">Story</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium" href="#location">Location</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button aria-label="Order Delivery" class="flex items-center justify-center h-10 w-10 rounded-full bg-[#29382f] text-white hover:bg-[#3a4f42] transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">two_wheeler</span>
+</button>
+<button class="hidden sm:flex h-10 items-center justify-center rounded-full bg-primary px-6 text-[#111714] text-sm font-bold tracking-wide hover:bg-[#2cd06e] transition-colors">
+                        RESERVE TABLE
+                    </button>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full">
+<div class="@container">
+<div class="px-4 py-6 md:px-10 md:py-8 lg:px-40">
+<div class="relative flex min-h-[560px] flex-col gap-6 overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat p-8 items-center justify-center text-center shadow-2xl" data-alt="Close up of a steaming bowl of Bolivian Pique Macho with beef and french fries on a rustic wooden table with dark moody lighting" style='background-image: linear-gradient(rgba(17, 33, 23, 0.4), rgba(17, 33, 23, 0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5kQqR78ApHg8j6Lph3pbSqaRzGV5pQGOE2Mqhtj4bh7MgDJSsffa_4GJv5xzlbPuzxfIWT6PwRC5mC1tefULyH92FvcOtF6JQwTMsfayf-pGI07wG_0EVerXvoZan07oBPfJ1-wfTJThb_Zf_ZEm5oUQRNefrVqYNm1aujseaCtqV1CsjNZWJAt88ldsjntqEEBoI_QSfHu8aFAaHgHP6SuvIUjaKV5jcXZFxR8HD3cSN-r_TFMQm-mj6hQmxe9CO2CmmfwPiSBw");'>
+<div class="flex flex-col gap-4 max-w-3xl animate-fade-in-up">
+<span class="text-primary font-bold tracking-wider text-sm uppercase">Welcome to La Paz</span>
+<h1 class="text-white text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight drop-shadow-lg">
+                                Authentic Flavors <br/> of the Andes
+                            </h1>
+<h2 class="text-gray-200 text-lg md:text-xl font-normal max-w-2xl mx-auto drop-shadow-md">
+                                Experience the heart of Bolivia on your plate. From the Altiplano to the Amazon.
+                            </h2>
+</div>
+<div class="mt-4 flex flex-col sm:flex-row gap-4">
+<button class="h-12 px-8 rounded-full bg-primary text-[#111714] text-base font-bold tracking-wide hover:scale-105 transition-transform shadow-lg shadow-primary/20">
+                                RESERVE TABLE
+                            </button>
+<button class="h-12 px-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-base font-bold tracking-wide hover:bg-white/20 transition-colors">
+                                VIEW MENU
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Highlights (Carousel) -->
+<section class="py-12 md:py-16" id="menu">
+<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col gap-2 mb-8 text-center sm:text-left">
+<h2 class="text-white text-3xl font-bold tracking-tight">Our Menu</h2>
+<p class="text-gray-400">Explore the diversity of Bolivian cuisine.</p>
+</div>
+<div class="flex w-full overflow-x-auto pb-6 scrollbar-hide">
+<div class="flex min-w-full flex-row items-start justify-between gap-6 sm:gap-10">
+<!-- Item 1 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Traditional Bolivian Salteñas pastries on a plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-grlq2Wv71Nmcppj536ebIyXVROUTrZv-CqFHu518zXIoSczp40_dHc7oFQfcLuhStjpoFOdfT2qtt_pBkBuulm8bNBRm03shYkzoL3xp2rx7WYaDXVD3it4vLimlmwd-9c98Gmw0pRvM7-yQfmALNVZGhGyicjusjrPlDXPeNlaugC-UOE7Uhv0bw-5YSm3RtSDN8MdedXB-5eL-4BndZx2bkRn2MQ23IdtELUCXehsBZlf5QONRj09PIXVgqR85jk1tsekraHw");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">Traditional</p>
+</div>
+<!-- Item 2 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Grilled steak with herbs on a dark plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4gEm8CGh3oZG7tRZ-nDMlVJp4qdCnv-Y2CwaKw6E3-fyDx7UnLfgiZsgaZJHatzrbHFUXXQ2kaFt28LdsuoJKriK5HTRUzPCRIJ0c6hu-RP3lFL9Tl98TCIBFnkts9XnQd2wRj8q_fPdbNL3mg70RXXm0pTmpKQCb0rVoRwT2Ar2c9AMgRwzAxEzSmvVc9bFCLnCxZkadYuth8Af-Wn2hLd8dyR3IwFGlbRcouFBms9XhMHfalcDcTt2J0MH5X0fiirP15KUyenw");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">International</p>
+</div>
+<!-- Item 3 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Quinoa salad bowl with fresh vegetables" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6Ts-39cIYrgJ6ZRILd8_CPld36KNuz0G4tf6qkvgFhFBdt6BtrXW2rqn_36P15gSx8nItZk1J4oRr9rh-Eq65S6VulN9eyrLMQqKEE9Xe1dQa9WAcq4Buas5uU-Zi4v_hImB2ZNOgsnJ4YnHOXUW-E9fG0UnFGTK5vih7a5Y2hbYLd0ywhFs9ECSg250lpCEeLZnghYeKJfufYVV0wZ77K9RTIhGo_IHlRX7pbebCnPp6whRJakfHLm7fPPyCIXo5SmVQswvgMAA");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">Vegan</p>
+</div>
+<!-- Item 4 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Traditional desserts and ice cream" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAp4Skol7UqBMHoss0kC-K_MmFiCxyjleXfCwWCqlj59oOyR62yuR-nKEOyePbEhmTzF4VWXhRoY-mBULYF7-UHUncx7Yma7mVQ8KijHNFFJVqwphy9djrgBkFpnIgnrFvIJZsWobzpgCrCXkDyZDjRuEcEJN0CWtkxlp2rQY4b2Ray6tjMBKrBxGzJ1MMft1FS0DPQB6ezneSqi0mNCXel8WQMCLcaTNi4SA7Q2OlStettIuRD8gJOWnjFtVURzzIjqTzpiPVOdcw");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">Desserts</p>
+</div>
+<!-- Item 5 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Exotic cocktails with local fruits" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7JoBJ4Rb2S_T7D8kU2j9hEnG1TIDhWBoGEwndSbeIHtw6yZGRERQD2psQ6CjXSreSpzi-HTJ7KdlkJDt7DifKSPvvQYjP1kcJJP9SIT4jJWit2TII_L3i9vc1PS9s7dltOo2uraIDrDty5pDN_kQYrdYbLoXj1Kztv1WBHLUfWl_POLX4RZEbtbAg2ZWv2ffZu4NQUlkFGtJI2ADtrHx0_BGi10aXlx6SGeyi2zuLOZep6uYNvgctD0BrqT0fLQoILhJUg7Bl8CM");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">Bar</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Story Section -->
+<section class="py-16 bg-surface-dark relative overflow-hidden" id="story">
+<!-- Background Pattern decoration -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+<div class="h-px w-8 bg-primary"></div>
+<span>Our Philosophy</span>
+</div>
+<h2 class="text-white text-4xl font-bold leading-tight">From the Yungas to Your Table</h2>
+<p class="text-gray-300 leading-relaxed text-lg">
+                            At Sabor de Bolivia, we believe in the power of local ingredients. We source our potatoes from the high Altiplano, our coffee from the lush Yungas valleys, and our spices directly from local markets in Cochabamba.
+                        </p>
+<p class="text-gray-300 leading-relaxed text-lg">
+                            Every dish tells a story of tradition, resilience, and the rich cultural tapestry of our beloved country.
+                        </p>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all" href="#">
+                                Read our full story 
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-4 mt-8">
+<div class="w-full h-48 rounded-2xl bg-cover bg-center" data-alt="Close up of coffee beans or coca leaves texture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAz5pi1hS27FMk_sky6jMXej9nRS2uPPWxoEdsyMveGmuKK3RTeZFMJkR_nmcISoFrgoh_VSfUXWe7WQ0KgskO0EiIsgt4Kwn_-holcC-dJPaAs73XWPpAbMfEvXkRk3XB3ciWIq8fM49pZrmWYRijV7hAZATRsxMh-rpKG65PI8dET_syctw1xdyOmPCME2PgOdFnsmHjRu8y4clFypCJAmYrhqfHogTalBFA-t1M2uyEfIMBMMqIcPbq16sABpJN77gEMOE_hmQw");'></div>
+<div class="w-full h-64 rounded-2xl bg-cover bg-center" data-alt="Andean textiles with colorful patterns" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUt4ScT2tf3lBqiwYX-clyiG1MHWHl_3L6hG8nWqCZR8V9TlyEmE8GA7CQj4VLFSHBMa2_otuE3FzCMlEDyoAxRqlYeN5KMjIfFdfrTsll2x4N7NepWFWjYFGHyi5tMZ7f3dYq4aKKhPLEbUmHGcmox0LUTi865SzxnZF8kS7mV8YWC63a_0Os1tW6fOov82_U2ElE_pt8LOBylFpfswirwjq1fMqO9wajkVDxF_2ceLbopKLhhDt2JbGA1ZzIobV3AoXAiBCBM0k");'></div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="w-full h-64 rounded-2xl bg-cover bg-center" data-alt="Farmer working in the fields in Bolivia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-nnZcpEuwbCl2J3RLg8caIIKgYoF4azUTXEsUwwL9xwAQWIYivU8i-66XrA9TSQcs8CXxg0kq2-YwsC9H2X-ThZyLCwV6BB66g_yjwSvsjJO6CB0PJbFDloh0VK4-QXDoLYRL6ykZN6DcpbkIOMZ_9UadQaROoSL4P_TfULHK6H493bMifeprzx2y8aZ34Rrm7IVxVZo1QSmIRF6Ni1Z4y-bYTQBNMTYLFlbwlDTud8Wvz5X9aoZniObSAEYI7E0stD5cIMk9bOc");'></div>
+<div class="w-full h-48 rounded-2xl bg-cover bg-center" data-alt="Chef plating a dish with precision" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHqcWbkDwFBfRd3bIo2nioqncf0aco1oOjw_vH8X_KpY0-DPdTPmvhfVcwILCXOGwsLCbJyR8Wm3jKzWDDeckobTLdHeW-hJcaSQJLZ0jGHJaf2cbUB0RJXtlXaU-E7rCwAThg9Y1J7AQle2Zt1EKn3uCtis5sMn7RB-IQQEpsgyAeQAElZbYRukBN_NCt1dZ5WsbYqrPoxa4F_Rsps8OP1PhYWVTnMwVUk7aSSECo5uaXzyjg5wNi2Ii5VPk6LDEbJR9AASz94UA");'></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reservation Section -->
+<section class="py-20 relative" id="reservation">
+<div class="mx-auto max-w-[1000px] px-4 sm:px-6 lg:px-8">
+<div class="bg-[#29382f] rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+<!-- Decorative Circle -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<div class="flex flex-col items-center text-center gap-4 mb-10 relative z-10">
+<h2 class="text-white text-3xl md:text-4xl font-bold">Reserve Your Experience</h2>
+<p class="text-gray-300 max-w-lg">Book your table today to guarantee your spot. For groups larger than 10, please contact us directly.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-12 gap-4 relative z-10 bg-background-dark/50 p-2 rounded-2xl border border-white/5">
+<!-- Date Input -->
+<div class="md:col-span-4 relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<input class="w-full bg-[#1A2C22] border-none text-white rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:bg-[#111714] transition-all placeholder-gray-500" placeholder="Select Date" type="date"/>
+</div>
+<!-- Time Input -->
+<div class="md:col-span-3 relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<select class="w-full bg-[#1A2C22] border-none text-white rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:bg-[#111714] transition-all appearance-none cursor-pointer">
+<option>19:00</option>
+<option>19:30</option>
+<option>20:00</option>
+<option>20:30</option>
+<option>21:00</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<!-- Guests Input -->
+<div class="md:col-span-2 relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary">
+<span class="material-symbols-outlined">group</span>
+</div>
+<select class="w-full bg-[#1A2C22] border-none text-white rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:bg-[#111714] transition-all appearance-none cursor-pointer">
+<option>2 Ppl</option>
+<option>3 Ppl</option>
+<option>4 Ppl</option>
+<option>5+ Ppl</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="md:col-span-3">
+<button class="w-full h-full min-h-[56px] bg-primary hover:bg-[#2cd06e] text-[#111714] font-bold rounded-xl transition-colors shadow-lg flex items-center justify-center gap-2" type="button">
+<span>Find Table</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Location & Footer -->
+<footer class="bg-background-dark border-t border-[#29382f] pt-16 pb-8" id="location">
+<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+<!-- Contact Info -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background-dark">
+<span class="material-symbols-outlined" style="font-size: 20px;">restaurant</span>
+</div>
+<h3 class="text-white text-xl font-bold">Sabor de Bolivia</h3>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed">
+                            Av. Montenegro 1234, San Miguel<br/>
+                            La Paz, Bolivia
+                        </p>
+<div class="flex flex-col gap-2">
+<a class="text-white hover:text-primary transition-colors flex items-center gap-2" href="tel:+59122222222">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+                                +591 2 222-2222
+                            </a>
+<a class="text-white hover:text-primary transition-colors flex items-center gap-2" href="mailto:reservas@sabordebolivia.com">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+                                reservas@sabordebolivia.com
+                            </a>
+</div>
+<div class="flex gap-4 mt-2">
+<a class="w-10 h-10 rounded-full bg-[#29382f] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-all" href="#">
+<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.04C16.5 2.04 22 6.53 22 12.06C22 17.06 16.66 22 12 22C7.34 22 2 17.06 2 12.06C2 6.53 7.5 2.04 12 2.04ZM12 4C7.95 4 4.5 7.63 4.5 12.06C4.5 15.7 7.95 19.38 12 19.38C16.05 19.38 19.5 15.7 19.5 12.06C19.5 7.63 16.05 4 12 4ZM12 8C13.66 8 15 9.34 15 11C15 12.66 13.66 14 12 14C10.34 14 9 12.66 9 11C9 9.34 10.34 8 12 8Z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-[#29382f] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-all" href="#">
+<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M22 12L2 12L2 4L22 4L22 12ZM2 20L22 20L22 14L2 14L2 20Z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Hours -->
+<div class="flex flex-col gap-6">
+<h4 class="text-white text-lg font-bold">Opening Hours</h4>
+<ul class="space-y-3">
+<li class="flex justify-between text-gray-400 border-b border-[#29382f] pb-2">
+<span>Mon - Thu</span>
+<span class="text-white">12:00 PM - 10:00 PM</span>
+</li>
+<li class="flex justify-between text-gray-400 border-b border-[#29382f] pb-2">
+<span>Friday</span>
+<span class="text-white">12:00 PM - 11:00 PM</span>
+</li>
+<li class="flex justify-between text-gray-400 border-b border-[#29382f] pb-2">
+<span>Saturday</span>
+<span class="text-white">11:00 AM - 11:00 PM</span>
+</li>
+<li class="flex justify-between text-gray-400 pb-2">
+<span>Sunday</span>
+<span class="text-white">11:00 AM - 09:00 PM</span>
+</li>
+</ul>
+</div>
+<!-- Map -->
+<div class="flex flex-col gap-6 h-full">
+<h4 class="text-white text-lg font-bold">Find Us</h4>
+<div class="w-full h-48 md:h-full bg-[#29382f] rounded-2xl overflow-hidden relative group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Map of La Paz Bolivia showing restaurant location" data-location="La Paz Bolivia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhsazbDYf1I9c54BCQ9nOmx7lOUZjOVr7KypWP8xkFJ1yLV17zbFbvMH-IfgQSOnP4czvPp072IfRV4rzGZS75K26gYhk38BEdnz2Va5sXvSm4BKd97t-aoXezZtI28jiCHExxlmWVHnmNG73_enuIU9Z91d8yis9SBPQhqBiabC5vkk6eRsCgYYp2plkmb1WRsHGmL4zVuk0gf_X5RoRhAxrRI7TF6yxFYh8dt1K32d2RheAWXs5t9iBUJsUNo-HualpO4DvP0XE");'>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-transparent transition-colors">
+<div class="bg-primary text-background-dark px-4 py-2 rounded-lg font-bold text-sm shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">map</span>
+                                    Open Map
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-[#29382f] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-gray-500 text-sm">© 2024 Sabor de Bolivia. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-gray-500 hover:text-white text-sm" href="#">Privacy Policy</a>
+<a class="text-gray-500 hover:text-white text-sm" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Mobile Sticky Reservation Button -->
+<div class="fixed bottom-6 right-6 z-50 sm:hidden">
+<button class="flex items-center justify-center h-14 w-14 rounded-full bg-primary text-[#111714] shadow-xl shadow-primary/30 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-size: 28px;">calendar_month</span>
+</button>
+</div>
+</main>
+</body></html>
+`;
+const sabornuevoHTML = `
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sabor de Bolivia</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#36e27b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                        "surface-dark": "#1A2C22",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden antialiased">
+<!-- Sticky Navigation -->
+<nav class="sticky top-0 z-50 w-full border-b border-[#29382f] bg-[#112117]/90 backdrop-blur-md">
+<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<!-- Logo -->
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background-dark">
+<span class="material-symbols-outlined" style="font-size: 20px;">restaurant</span>
+</div>
+<h2 class="text-white text-lg font-bold tracking-tight">Sabor de Bolivia</h2>
+</div>
+<!-- Desktop Links -->
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-white hover:text-primary transition-colors text-sm font-medium" href="#menu">Menu</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium" href="#story">Story</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium" href="#location">Location</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button aria-label="Order Delivery" class="flex items-center justify-center h-10 w-10 rounded-full bg-[#29382f] text-white hover:bg-[#3a4f42] transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">two_wheeler</span>
+</button>
+<button class="hidden sm:flex h-10 items-center justify-center rounded-full bg-primary px-6 text-[#111714] text-sm font-bold tracking-wide hover:bg-[#2cd06e] transition-colors">
+                        RESERVE TABLE
+                    </button>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex flex-col w-full">
+<!-- Hero Section -->
+<section class="relative w-full">
+<div class="@container">
+<div class="px-4 py-6 md:px-10 md:py-8 lg:px-40">
+<div class="relative flex min-h-[560px] flex-col gap-6 overflow-hidden rounded-xl bg-cover bg-center bg-no-repeat p-8 items-center justify-center text-center shadow-2xl" data-alt="Close up of a steaming bowl of Bolivian Pique Macho with beef and french fries on a rustic wooden table with dark moody lighting" style='background-image: linear-gradient(rgba(17, 33, 23, 0.4), rgba(17, 33, 23, 0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5kQqR78ApHg8j6Lph3pbSqaRzGV5pQGOE2Mqhtj4bh7MgDJSsffa_4GJv5xzlbPuzxfIWT6PwRC5mC1tefULyH92FvcOtF6JQwTMsfayf-pGI07wG_0EVerXvoZan07oBPfJ1-wfTJThb_Zf_ZEm5oUQRNefrVqYNm1aujseaCtqV1CsjNZWJAt88ldsjntqEEBoI_QSfHu8aFAaHgHP6SuvIUjaKV5jcXZFxR8HD3cSN-r_TFMQm-mj6hQmxe9CO2CmmfwPiSBw");'>
+<div class="flex flex-col gap-4 max-w-3xl animate-fade-in-up">
+<span class="text-primary font-bold tracking-wider text-sm uppercase">Welcome to La Paz</span>
+<h1 class="text-white text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight drop-shadow-lg">
+                                Authentic Flavors <br/> of the Andes
+                            </h1>
+<h2 class="text-gray-200 text-lg md:text-xl font-normal max-w-2xl mx-auto drop-shadow-md">
+                                Experience the heart of Bolivia on your plate. From the Altiplano to the Amazon.
+                            </h2>
+</div>
+<div class="mt-4 flex flex-col sm:flex-row gap-4">
+<button class="h-12 px-8 rounded-full bg-primary text-[#111714] text-base font-bold tracking-wide hover:scale-105 transition-transform shadow-lg shadow-primary/20">
+                                RESERVE TABLE
+                            </button>
+<button class="h-12 px-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-base font-bold tracking-wide hover:bg-white/20 transition-colors">
+                                VIEW MENU
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Highlights (Carousel) -->
+<section class="py-12 md:py-16" id="menu">
+<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col gap-2 mb-8 text-center sm:text-left">
+<h2 class="text-white text-3xl font-bold tracking-tight">Our Menu</h2>
+<p class="text-gray-400">Explore the diversity of Bolivian cuisine.</p>
+</div>
+<div class="flex w-full overflow-x-auto pb-6 scrollbar-hide">
+<div class="flex min-w-full flex-row items-start justify-between gap-6 sm:gap-10">
+<!-- Item 1 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Traditional Bolivian Salteñas pastries on a plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-grlq2Wv71Nmcppj536ebIyXVROUTrZv-CqFHu518zXIoSczp40_dHc7oFQfcLuhStjpoFOdfT2qtt_pBkBuulm8bNBRm03shYkzoL3xp2rx7WYaDXVD3it4vLimlmwd-9c98Gmw0pRvM7-yQfmALNVZGhGyicjusjrPlDXPeNlaugC-UOE7Uhv0bw-5YSm3RtSDN8MdedXB-5eL-4BndZx2bkRn2MQ23IdtELUCXehsBZlf5QONRj09PIXVgqR85jk1tsekraHw");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">Traditional</p>
+</div>
+<!-- Item 2 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Grilled steak with herbs on a dark plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4gEm8CGh3oZG7tRZ-nDMlVJp4qdCnv-Y2CwaKw6E3-fyDx7UnLfgiZsgaZJHatzrbHFUXXQ2kaFt28LdsuoJKriK5HTRUzPCRIJ0c6hu-RP3lFL9Tl98TCIBFnkts9XnQd2wRj8q_fPdbNL3mg70RXXm0pTmpKQCb0rVoRwT2Ar2c9AMgRwzAxEzSmvVc9bFCLnCxZkadYuth8Af-Wn2hLd8dyR3IwFGlbRcouFBms9XhMHfalcDcTt2J0MH5X0fiirP15KUyenw");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">International</p>
+</div>
+<!-- Item 3 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Quinoa salad bowl with fresh vegetables" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6Ts-39cIYrgJ6ZRILd8_CPld36KNuz0G4tf6qkvgFhFBdt6BtrXW2rqn_36P15gSx8nItZk1J4oRr9rh-Eq65S6VulN9eyrLMQqKEE9Xe1dQa9WAcq4Buas5uU-Zi4v_hImB2ZNOgsnJ4YnHOXUW-E9fG0UnFGTK5vih7a5Y2hbYLd0ywhFs9ECSg250lpCEeLZnghYeKJfufYVV0wZ77K9RTIhGo_IHlRX7pbebCnPp6whRJakfHLm7fPPyCIXo5SmVQswvgMAA");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">Vegan</p>
+</div>
+<!-- Item 4 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Traditional desserts and ice cream" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAp4Skol7UqBMHoss0kC-K_MmFiCxyjleXfCwWCqlj59oOyR62yuR-nKEOyePbEhmTzF4VWXhRoY-mBULYF7-UHUncx7Yma7mVQ8KijHNFFJVqwphy9djrgBkFpnIgnrFvIJZsWobzpgCrCXkDyZDjRuEcEJN0CWtkxlp2rQY4b2Ray6tjMBKrBxGzJ1MMft1FS0DPQB6ezneSqi0mNCXel8WQMCLcaTNi4SA7Q2OlStettIuRD8gJOWnjFtVURzzIjqTzpiPVOdcw");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">Desserts</p>
+</div>
+<!-- Item 5 -->
+<div class="group flex flex-col items-center gap-4 min-w-[100px] sm:min-w-[140px] cursor-pointer">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 ring-4 ring-transparent group-hover:ring-primary/20">
+<div class="w-full h-full bg-center bg-cover bg-no-repeat transform group-hover:scale-110 transition-transform duration-500" data-alt="Exotic cocktails with local fruits" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7JoBJ4Rb2S_T7D8kU2j9hEnG1TIDhWBoGEwndSbeIHtw6yZGRERQD2psQ6CjXSreSpzi-HTJ7KdlkJDt7DifKSPvvQYjP1kcJJP9SIT4jJWit2TII_L3i9vc1PS9s7dltOo2uraIDrDty5pDN_kQYrdYbLoXj1Kztv1WBHLUfWl_POLX4RZEbtbAg2ZWv2ffZu4NQUlkFGtJI2ADtrHx0_BGi10aXlx6SGeyi2zuLOZep6uYNvgctD0BrqT0fLQoILhJUg7Bl8CM");'>
+</div>
+</div>
+<p class="text-white text-sm sm:text-base font-medium group-hover:text-primary transition-colors">Bar</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Story Section -->
+<section class="py-16 bg-surface-dark relative overflow-hidden" id="story">
+<!-- Background Pattern decoration -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-xs">
+<div class="h-px w-8 bg-primary"></div>
+<span>Our Philosophy</span>
+</div>
+<h2 class="text-white text-4xl font-bold leading-tight">From the Yungas to Your Table</h2>
+<p class="text-gray-300 leading-relaxed text-lg">
+                            At Sabor de Bolivia, we believe in the power of local ingredients. We source our potatoes from the high Altiplano, our coffee from the lush Yungas valleys, and our spices directly from local markets in Cochabamba.
+                        </p>
+<p class="text-gray-300 leading-relaxed text-lg">
+                            Every dish tells a story of tradition, resilience, and the rich cultural tapestry of our beloved country.
+                        </p>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all" href="#">
+                                Read our full story 
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-4 mt-8">
+<div class="w-full h-48 rounded-2xl bg-cover bg-center" data-alt="Close up of coffee beans or coca leaves texture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAz5pi1hS27FMk_sky6jMXej9nRS2uPPWxoEdsyMveGmuKK3RTeZFMJkR_nmcISoFrgoh_VSfUXWe7WQ0KgskO0EiIsgt4Kwn_-holcC-dJPaAs73XWPpAbMfEvXkRk3XB3ciWIq8fM49pZrmWYRijV7hAZATRsxMh-rpKG65PI8dET_syctw1xdyOmPCME2PgOdFnsmHjRu8y4clFypCJAmYrhqfHogTalBFA-t1M2uyEfIMBMMqIcPbq16sABpJN77gEMOE_hmQw");'></div>
+<div class="w-full h-64 rounded-2xl bg-cover bg-center" data-alt="Andean textiles with colorful patterns" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUt4ScT2tf3lBqiwYX-clyiG1MHWHl_3L6hG8nWqCZR8V9TlyEmE8GA7CQj4VLFSHBMa2_otuE3FzCMlEDyoAxRqlYeN5KMjIfFdfrTsll2x4N7NepWFWjYFGHyi5tMZ7f3dYq4aKKhPLEbUmHGcmox0LUTi865SzxnZF8kS7mV8YWC63a_0Os1tW6fOov82_U2ElE_pt8LOBylFpfswirwjq1fMqO9wajkVDxF_2ceLbopKLhhDt2JbGA1ZzIobV3AoXAiBCBM0k");'></div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="w-full h-64 rounded-2xl bg-cover bg-center" data-alt="Farmer working in the fields in Bolivia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-nnZcpEuwbCl2J3RLg8caIIKgYoF4azUTXEsUwwL9xwAQWIYivU8i-66XrA9TSQcs8CXxg0kq2-YwsC9H2X-ThZyLCwV6BB66g_yjwSvsjJO6CB0PJbFDloh0VK4-QXDoLYRL6ykZN6DcpbkIOMZ_9UadQaROoSL4P_TfULHK6H493bMifeprzx2y8aZ34Rrm7IVxVZo1QSmIRF6Ni1Z4y-bYTQBNMTYLFlbwlDTud8Wvz5X9aoZniObSAEYI7E0stD5cIMk9bOc");'></div>
+<div class="w-full h-48 rounded-2xl bg-cover bg-center" data-alt="Chef plating a dish with precision" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHqcWbkDwFBfRd3bIo2nioqncf0aco1oOjw_vH8X_KpY0-DPdTPmvhfVcwILCXOGwsLCbJyR8Wm3jKzWDDeckobTLdHeW-hJcaSQJLZ0jGHJaf2cbUB0RJXtlXaU-E7rCwAThg9Y1J7AQle2Zt1EKn3uCtis5sMn7RB-IQQEpsgyAeQAElZbYRukBN_NCt1dZ5WsbYqrPoxa4F_Rsps8OP1PhYWVTnMwVUk7aSSECo5uaXzyjg5wNi2Ii5VPk6LDEbJR9AASz94UA");'></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reservation Section -->
+<section class="py-20 relative" id="reservation">
+<div class="mx-auto max-w-[1000px] px-4 sm:px-6 lg:px-8">
+<div class="bg-[#29382f] rounded-3xl p-8 md:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+<!-- Decorative Circle -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<div class="flex flex-col items-center text-center gap-4 mb-10 relative z-10">
+<h2 class="text-white text-3xl md:text-4xl font-bold">Reserve Your Experience</h2>
+<p class="text-gray-300 max-w-lg">Book your table today to guarantee your spot. For groups larger than 10, please contact us directly.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-12 gap-4 relative z-10 bg-background-dark/50 p-2 rounded-2xl border border-white/5">
+<!-- Date Input -->
+<div class="md:col-span-4 relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<input class="w-full bg-[#1A2C22] border-none text-white rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:bg-[#111714] transition-all placeholder-gray-500" placeholder="Select Date" type="date"/>
+</div>
+<!-- Time Input -->
+<div class="md:col-span-3 relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<select class="w-full bg-[#1A2C22] border-none text-white rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:bg-[#111714] transition-all appearance-none cursor-pointer">
+<option>19:00</option>
+<option>19:30</option>
+<option>20:00</option>
+<option>20:30</option>
+<option>21:00</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<!-- Guests Input -->
+<div class="md:col-span-2 relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary">
+<span class="material-symbols-outlined">group</span>
+</div>
+<select class="w-full bg-[#1A2C22] border-none text-white rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:bg-[#111714] transition-all appearance-none cursor-pointer">
+<option>2 Ppl</option>
+<option>3 Ppl</option>
+<option>4 Ppl</option>
+<option>5+ Ppl</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="md:col-span-3">
+<button class="w-full h-full min-h-[56px] bg-primary hover:bg-[#2cd06e] text-[#111714] font-bold rounded-xl transition-colors shadow-lg flex items-center justify-center gap-2" type="button">
+<span>Find Table</span>
+<span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Location & Footer -->
+<footer class="bg-background-dark border-t border-[#29382f] pt-16 pb-8" id="location">
+<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+<!-- Contact Info -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background-dark">
+<span class="material-symbols-outlined" style="font-size: 20px;">restaurant</span>
+</div>
+<h3 class="text-white text-xl font-bold">Sabor de Bolivia</h3>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed">
+                            Av. Montenegro 1234, San Miguel<br/>
+                            La Paz, Bolivia
+                        </p>
+<div class="flex flex-col gap-2">
+<a class="text-white hover:text-primary transition-colors flex items-center gap-2" href="tel:+59122222222">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+                                +591 2 222-2222
+                            </a>
+<a class="text-white hover:text-primary transition-colors flex items-center gap-2" href="mailto:reservas@sabordebolivia.com">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+                                reservas@sabordebolivia.com
+                            </a>
+</div>
+<div class="flex gap-4 mt-2">
+<a class="w-10 h-10 rounded-full bg-[#29382f] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-all" href="#">
+<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.04C16.5 2.04 22 6.53 22 12.06C22 17.06 16.66 22 12 22C7.34 22 2 17.06 2 12.06C2 6.53 7.5 2.04 12 2.04ZM12 4C7.95 4 4.5 7.63 4.5 12.06C4.5 15.7 7.95 19.38 12 19.38C16.05 19.38 19.5 15.7 19.5 12.06C19.5 7.63 16.05 4 12 4ZM12 8C13.66 8 15 9.34 15 11C15 12.66 13.66 14 12 14C10.34 14 9 12.66 9 11C9 9.34 10.34 8 12 8Z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-[#29382f] flex items-center justify-center text-white hover:bg-primary hover:text-background-dark transition-all" href="#">
+<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M22 12L2 12L2 4L22 4L22 12ZM2 20L22 20L22 14L2 14L2 20Z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Hours -->
+<div class="flex flex-col gap-6">
+<h4 class="text-white text-lg font-bold">Opening Hours</h4>
+<ul class="space-y-3">
+<li class="flex justify-between text-gray-400 border-b border-[#29382f] pb-2">
+<span>Mon - Thu</span>
+<span class="text-white">12:00 PM - 10:00 PM</span>
+</li>
+<li class="flex justify-between text-gray-400 border-b border-[#29382f] pb-2">
+<span>Friday</span>
+<span class="text-white">12:00 PM - 11:00 PM</span>
+</li>
+<li class="flex justify-between text-gray-400 border-b border-[#29382f] pb-2">
+<span>Saturday</span>
+<span class="text-white">11:00 AM - 11:00 PM</span>
+</li>
+<li class="flex justify-between text-gray-400 pb-2">
+<span>Sunday</span>
+<span class="text-white">11:00 AM - 09:00 PM</span>
+</li>
+</ul>
+</div>
+<!-- Map -->
+<div class="flex flex-col gap-6 h-full">
+<h4 class="text-white text-lg font-bold">Find Us</h4>
+<div class="w-full h-48 md:h-full bg-[#29382f] rounded-2xl overflow-hidden relative group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Map of La Paz Bolivia showing restaurant location" data-location="La Paz Bolivia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAhsazbDYf1I9c54BCQ9nOmx7lOUZjOVr7KypWP8xkFJ1yLV17zbFbvMH-IfgQSOnP4czvPp072IfRV4rzGZS75K26gYhk38BEdnz2Va5sXvSm4BKd97t-aoXezZtI28jiCHExxlmWVHnmNG73_enuIU9Z91d8yis9SBPQhqBiabC5vkk6eRsCgYYp2plkmb1WRsHGmL4zVuk0gf_X5RoRhAxrRI7TF6yxFYh8dt1K32d2RheAWXs5t9iBUJsUNo-HualpO4DvP0XE");'>
+</div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-transparent transition-colors">
+<div class="bg-primary text-background-dark px-4 py-2 rounded-lg font-bold text-sm shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">map</span>
+                                    Open Map
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-[#29382f] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-gray-500 text-sm">© 2024 Sabor de Bolivia. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-gray-500 hover:text-white text-sm" href="#">Privacy Policy</a>
+<a class="text-gray-500 hover:text-white text-sm" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Mobile Sticky Reservation Button -->
+<div class="fixed bottom-6 right-6 z-50 sm:hidden">
+<button class="flex items-center justify-center h-14 w-14 rounded-full bg-primary text-[#111714] shadow-xl shadow-primary/30 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-size: 28px;">calendar_month</span>
+</button>
+</div>
+</main>
+</body></html>
+`;
+const demos = [
+  {
+    id: "sabor-bolivia",
+    title: "Sabor de Bolivia",
+    description: "Restaurante Gourmet Boliviano",
+    content: saborBoliviaHTML,
+    thumbnail: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600"
+  }, {
+    id: "sabor-bolivia",
+    title: "Sabor de Bolivia",
+    description: "Restaurante Gourmet Boliviano",
+    content: sabornuevoHTML,
+    thumbnail: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600"
+  }
+];
+---
+
+<MainLayout title="Demos - Miracode">
+  <div class="p-10 min-h-screen relative z-10">
+    <h1 class="text-3xl font-bold text-white mb-8 text-center">Catálogo de Soluciones</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {demos.map(demo => (
+        <div 
+          class="bg-[#1a1a1a] rounded-xl overflow-hidden cursor-pointer hover:ring-2 hover:ring-green-400 transition-all group"
+          onclick={`
+            document.getElementById('modal-${demo.id}').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            document.documentElement.classList.add('modal-open');
+          `}
+        >
+          <img src={demo.thumbnail} alt={demo.title} class="w-full h-48 object-cover opacity-80 group-hover:opacity-100" />
+          <div class="p-4">
+            <h3 class="text-white font-bold text-xl">{demo.title}</h3>
+            <p class="text-gray-400 text-sm mt-1">{demo.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* MODALES DINÁMICOS - AISLAMIENTO TOTAL */}
+  {demos.map(demo => (
+    <div 
+      id={`modal-${demo.id}`} 
+      class="hidden fixed inset-0 z-[10000] bg-black flex flex-col w-screen h-screen overflow-hidden"
+      style="top:0; left:0; right:0; bottom:0;"
+    >
+      <div class="p-4 flex justify-between items-center bg-[#111] border-b border-white/10 shrink-0">
+        <div class="flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+            <h2 class="text-white font-bold">{demo.title} - Vista Previa</h2>
+        </div>
+        <button 
+          class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-full font-bold transition-all shadow-xl"
+          onclick={`
+            document.getElementById('modal-${demo.id}').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            document.documentElement.classList.remove('modal-open');
+          `}
+        >
+          Cerrar Demo
+        </button>
+      </div>
+
+      <div class="flex-1 w-full h-full bg-white overflow-hidden relative">
+         <DemoScreen htmlContent={demo.content} />
+      </div>
+    </div>
+  ))}
+</MainLayout>
+
+<style is:global>
+  /* Esta es la parte clave: 
+     Cuando el modal está abierto, forzamos a que el footer 
+     y el contenido original de Miracode no interfieran.
+  */
+  html.modal-open #footer, 
+  html.modal-open footer {
+    display: none !important;
+  }
+
+  html.modal-open main {
+    visibility: hidden;
+  }
+  
+  /* Aseguramos que el modal siga siendo visible aunque el main se oculte */
+  [id^="modal-"] {
+    visibility: visible !important;
+  }
+</style>
