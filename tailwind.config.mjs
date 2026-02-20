@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     screens: {
       sm: "640px",
@@ -19,18 +19,17 @@ export default {
         medium: 500,
       },
       colors: {
-        green: "var(--primary)",
-        black: "var(--black)",
-        dark: "var(--dark)",
-        gray: "var(--gray)",
-        white: "var(--white)",
+        primary: "#8b5cf6", // Violet 500
+        secondary: "#ec4899", // Pink 500
+        accent: "#06b6d4", // Cyan 500
+        black: "#0f172a", // Slate 900
+        dark: "#020617", // Midnight
+        gray: "#f1f5f9", // Slate 100
+        white: "#ffffff",
         // Colores sutiles de Miracode
-        'miracode-red': '#ff6b6b',
-        'miracode-cyan': '#4ecdc4',
-        'miracode-purple': '#a29bfe',
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
-        accent: "var(--accent)",
+        "miracode-red": "#ff6b6b",
+        "miracode-cyan": "#06b6d4",
+        "miracode-purple": "#8b5cf6",
       },
     },
   },

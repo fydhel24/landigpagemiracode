@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
   .font-outline {
     -webkit-text-stroke: 2.5px #2563eb;
@@ -15,77 +15,93 @@
   }
 
   :root {
-    --primary: #2563eb;
-    --secondary: #f97316;
-    --accent: #7c3aed;
-    --black: #1e293b;
-    --dark: #0f172a;
+    --primary: #8b5cf6;
+    --secondary: #ec4899;
+    --accent: #06b6d4;
+    --black: #0f172a;
+    --dark: #020617;
     --gray: #f1f5f9;
     --white: #ffffff;
   }
 
   .dark {
-    --primary: #3b82f6;
-    --secondary: #fb923c;
-    --accent: #a78bfa;
+    --primary: #a78bfa;
+    --secondary: #f472b6;
+    --accent: #22d3ee;
     --black: #f8fafc;
-    --dark: #1e293b;
-    --gray: #0f172a;
-    --white: #0f172a;
+    --dark: #0f172a;
+    --gray: #020617;
+    --white: #020617;
   }
 
   /* Dark mode image filters */
   .dark img {
-    filter: brightness(0.8) contrast(1.2);
+    filter: brightness(0.9) contrast(1.1);
   }
 
   .dark svg {
-    filter: brightness(0.8);
+    filter: brightness(0.9);
   }
 
   /* Dark mode text */
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark p, .dark span, .dark div, .dark a {
-    color: white;
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6,
+  .dark p,
+  .dark span,
+  .dark div,
+  .dark a {
+    color: #f8fafc;
   }
 
   /* Footer always dark */
-  .footer-always-dark, .footer-bg {
-    background-color: #0f172a !important;
+  .footer-always-dark,
+  .footer-bg {
+    background-color: #020617 !important;
   }
 
-  .footer-always-dark, .footer-always-dark *, .footer-bg, .footer-bg * {
+  .footer-always-dark,
+  .footer-always-dark *,
+  .footer-bg,
+  .footer-bg * {
     color: #f1f5f9 !important;
   }
 
-  .dark .footer-always-dark, .dark .footer-bg {
-    background-color: #0f172a !important;
+  .dark .footer-always-dark,
+  .dark .footer-bg {
+    background-color: #020617 !important;
   }
 
-  .dark .footer-always-dark, .dark .footer-always-dark *, .dark .footer-bg, .dark .footer-bg * {
+  .dark .footer-always-dark,
+  .dark .footer-always-dark *,
+  .dark .footer-bg,
+  .dark .footer-bg * {
     color: #f1f5f9 !important;
   }
-
 
   @layer components {
     .btn-primary {
-      @apply bg-primary text-white rounded-lg px-[35px] py-5 transition-all duration-200;
+      @apply bg-gradient-to-r from-primary to-secondary text-white rounded-xl px-[35px] py-5 transition-all duration-300 shadow-md;
     }
     .btn-primary:hover {
-      @apply bg-secondary text-white transform scale-105;
+      @apply from-secondary to-primary text-white transform scale-[1.02] shadow-lg;
     }
 
     .btn-secondary {
-      @apply bg-transparent text-primary px-[35px] py-5 rounded-lg border border-solid border-primary transition-all duration-200;
+      @apply bg-transparent text-primary px-[35px] py-5 rounded-xl border-2 border-solid border-primary transition-all duration-300;
     }
     .btn-secondary:hover {
-      @apply bg-primary text-white border-secondary transform scale-105;
+      @apply bg-primary/10 border-secondary text-secondary transform scale-[1.02];
     }
 
     .btn-tertiary {
-      @apply bg-secondary text-white rounded-lg px-[35px] py-5 transition-all duration-200;
+      @apply bg-accent text-white rounded-xl px-[35px] py-5 transition-all duration-300 shadow-md;
     }
     .btn-tertiary:hover {
-      @apply bg-accent text-white transform scale-105;
+      @apply bg-primary text-white transform scale-[1.02] shadow-lg;
     }
 
     .greenhead {
@@ -112,11 +128,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2563eb;
+  background: #8b5cf6;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+  background: #7c3aed;
 }
 
 /* markdown style */
@@ -136,8 +152,13 @@
 .dark p,
 .dark li,
 .dark div,
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: white !important;
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #f8fafc !important;
 }
 /* Animación de subrayado desde el centro */
 .nav-underline {
@@ -156,11 +177,10 @@
 
   background: linear-gradient(90deg, #2563eb, #7c3aed, #f97316);
   transform: translateX(-50%);
-  
+
   transition: width 0.35s ease;
 }
 
 .nav-underline:hover::after {
   width: 100%;
 }
-
