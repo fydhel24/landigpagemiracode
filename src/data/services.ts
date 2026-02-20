@@ -1,10 +1,10 @@
 
 import cardEcommerceImg from "../assets/Banner/bannermiranda.png";
-import cardSoftwareImg from "../assets/BannerMovil/software.webp";
-import cardInfluencerImg from "../assets/BannerMovil/web.webp";
-import cardGiftCardImg from "../assets/BannerMovil/pedidos.webp";
-import cardTiktokImg from "../assets/BannerMovil/movil.webp";
-import cardTasksImg from "../assets/BannerMovil/hosting.webp";
+import cardSoftwareImg from "../assets/Banner/bannerchat.png";
+import cardInfluencerImg from "../assets/Banner/banneradmus.png";
+import cardGiftCardImg from "../assets/Banner/bannermiranda.png";
+import cardTiktokImg from "../assets/Banner/bannerchat.png";
+import cardTasksImg from "../assets/Banner/banneradmus.png";
 
 import mirandaLogin from "../assets/Banner/loginmiranda.png";
 import mirandaDashboard from "../assets/Banner/dashoardmiranda.png";
