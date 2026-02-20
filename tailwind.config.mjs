@@ -12,14 +12,14 @@ export default {
     },
     extend: {
       fontFamily: {
-        grotesk: ["Grotesk", "sans-serif"],
+        grotesk: ["Montserrat", "sans-serif"],
       },
       fontWeight: {
         regular: 400,
         medium: 500,
       },
       colors: {
-        green: "var(--green)",
+        green: "var(--primary)",
         black: "var(--black)",
         dark: "var(--dark)",
         gray: "var(--gray)",
@@ -28,6 +28,9 @@ export default {
         'miracode-red': '#ff6b6b',
         'miracode-cyan': '#4ecdc4',
         'miracode-purple': '#a29bfe',
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        accent: "var(--accent)",
       },
     },
   },

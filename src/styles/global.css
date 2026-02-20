@@ -3,45 +3,35 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: "Grotesk";
-    src: url("/fonts/grotesk/SpaceGrotesk-Regular.woff"), format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Grotesk";
-    src: url("/fonts/grotesk/SpaceGrotesk-Medium.woff"), format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
   .font-outline {
-    -webkit-text-stroke: 2.5px black;
+    -webkit-text-stroke: 2.5px #2563eb;
     background-color: transparent;
   }
   .font-outline-sm {
-    -webkit-text-stroke: 1.2px black;
+    -webkit-text-stroke: 1.2px #2563eb;
     background-color: transparent;
   }
 
   :root {
-    --green: #b9ff66;
-    --black: rgb(0, 0, 0);
-    --dark: #191a23;
-    --gray: #f3f3f3;
+    --primary: #2563eb;
+    --secondary: #f97316;
+    --accent: #7c3aed;
+    --black: #1e293b;
+    --dark: #0f172a;
+    --gray: #f1f5f9;
     --white: #ffffff;
   }
 
   .dark {
-    --green: #b9ff66;
-    --black: #ffffff;
-    --dark: #f3f3f3;
-    --gray: #191a23;
-    --white: #000000;
+    --primary: #3b82f6;
+    --secondary: #fb923c;
+    --accent: #a78bfa;
+    --black: #f8fafc;
+    --dark: #1e293b;
+    --gray: #0f172a;
+    --white: #0f172a;
   }
 
   /* Dark mode image filters */
@@ -60,54 +50,54 @@
 
   /* Footer always dark */
   .footer-always-dark, .footer-bg {
-    background-color: #191a23 !important;
+    background-color: #0f172a !important;
   }
 
   .footer-always-dark, .footer-always-dark *, .footer-bg, .footer-bg * {
-    color: #f3f3f3 !important;
+    color: #f1f5f9 !important;
   }
 
   .dark .footer-always-dark, .dark .footer-bg {
-    background-color: #191a23 !important;
+    background-color: #0f172a !important;
   }
 
   .dark .footer-always-dark, .dark .footer-always-dark *, .dark .footer-bg, .dark .footer-bg * {
-    color: #f3f3f3 !important;
+    color: #f1f5f9 !important;
   }
 
 
   @layer components {
     .btn-primary {
-      @apply bg-dark text-white rounded-lg px-[35px] py-5 transition-all duration-200;
+      @apply bg-primary text-white rounded-lg px-[35px] py-5 transition-all duration-200;
     }
     .btn-primary:hover {
-      @apply bg-green text-black transform scale-105;
+      @apply bg-secondary text-white transform scale-105;
     }
 
     .btn-secondary {
-      @apply bg-transparent text-black px-[35px] py-5 rounded-lg border border-solid border-black transition-all duration-200;
+      @apply bg-transparent text-primary px-[35px] py-5 rounded-lg border border-solid border-primary transition-all duration-200;
     }
     .btn-secondary:hover {
-      @apply bg-black text-white border-green transform scale-105;
+      @apply bg-primary text-white border-secondary transform scale-105;
     }
 
     .btn-tertiary {
-      @apply bg-green text-black rounded-lg px-[35px] py-5 transition-all duration-200;
+      @apply bg-secondary text-white rounded-lg px-[35px] py-5 transition-all duration-200;
     }
     .btn-tertiary:hover {
-      @apply bg-white text-black transform scale-105;
+      @apply bg-accent text-white transform scale-105;
     }
 
     .greenhead {
-      @apply bg-green text-black rounded-[7px] px-[7px];
+      @apply bg-primary text-white rounded-[7px] px-[7px];
     }
 
     .whitehead {
-      @apply bg-white text-black rounded-[7px] px-[7px];
+      @apply bg-white text-primary rounded-[7px] px-[7px];
     }
 
     .blackhead {
-      @apply bg-black text-white rounded-[7px] px-[7px];
+      @apply bg-dark text-white rounded-[7px] px-[7px];
     }
   }
 }
@@ -118,15 +108,15 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #000000;
+  background: #2563eb;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #1d4ed8;
 }
 
 /* markdown style */
@@ -164,7 +154,7 @@
   width: 0;
   height: 2px;
 
-  background: linear-gradient(90deg, #ff7a00, #a020f0, #00f0ff); /* degradado naranja-lila-cyan */
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #f97316);
   transform: translateX(-50%);
   
   transition: width 0.35s ease;
