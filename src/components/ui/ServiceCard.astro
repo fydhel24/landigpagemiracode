@@ -2,26 +2,44 @@
 import { Image } from "astro:assets";
 import Card from "./Card.astro";
 
-import gob from "../../assets/icon6.svg";
-import wob from "../../assets/icon7.svg";
-
 const { index, titleTop, titleBottom, img, alt, link } = Astro.props;
 
 const bgImage = typeof img === 'string' ? img : img.src;
 ---
 
 <Card isUnderline={true}>
-  <div
-    class="h-[500px] w-full  lg:gap-[60px] grid custom-grid lg:grid-cols-2 lg:grid-rows-1 p-8 sm:p-[50px] rounded-[45px] bg-cover bg-center bg-no-repeat text-white"
-    style={`background-image: url(${JSON.stringify(bgImage)})`}
-  >
-    <div class="flex items-end">
-      <a href={link} class="flex items-center gap-3.5">
-        <Image src={gob} alt="Go" />
-        <span class="hidden sm:block font-medium">Más Información</span>
-      </a>
+  <a href={link} class="group block relative h-[500px] w-full overflow-hidden rounded-[45px] transition-all duration-500 hover:shadow-2xl">
+    <!-- Background Image with Zoom Effect -->
+    <div 
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-110"
+      style={`background-image: url(${JSON.stringify(bgImage)})`}
+    ></div>
+    
+    <!-- Dark Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:opacity-90"></div>
+    
+    <!-- Content Context -->
+    <div class="absolute inset-0 p-10 flex flex-col justify-end">
+      <!-- Index Badge -->
+      <div class="absolute top-8 left-8 w-12 h-12 rounded-full bg-lime/20 backdrop-blur-md border border-lime/30 flex items-center justify-center text-lime font-black text-xl">
+        0{index}
+      </div>
+
+      <div class="transform transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+        <h3 class="text-4xl font-black text-white leading-tight mb-4">
+          <span class="text-lime">{titleTop}</span><br/>
+          {titleBottom}
+        </h3>
+        
+        <div class="flex items-center gap-3 text-white font-bold uppercase tracking-widest text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+          <div class="w-10 h-10 rounded-full bg-lime flex items-center justify-center text-black">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+          Explorar Proyecto
+        </div>
+      </div>
     </div>
-  </div>
+  </a>
 </Card>
 
 <style>

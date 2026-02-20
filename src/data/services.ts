@@ -1,88 +1,190 @@
-import heroEcommerceImg from "../assets/Banner/tienda.webp";
-import heroSoftwareImg from "../assets/Banner/software.webp";
-import heroInfluencerImg from "../assets/Banner/Disenoweb.webp";
-import heroGiftCardImg from "../assets/Banner/pedidos.webp";
-import heroTiktokImg from "../assets/Banner/movil.webp";
-import heroTasksImg from "../assets/Banner/hosting.webp";
 
-import cardEcommerceImg from "../assets/BannerMovil/tienda.webp";
+import cardEcommerceImg from "../assets/Banner/bannermiranda.png";
 import cardSoftwareImg from "../assets/BannerMovil/software.webp";
 import cardInfluencerImg from "../assets/BannerMovil/web.webp";
 import cardGiftCardImg from "../assets/BannerMovil/pedidos.webp";
 import cardTiktokImg from "../assets/BannerMovil/movil.webp";
 import cardTasksImg from "../assets/BannerMovil/hosting.webp";
 
-export const services = [
+import mirandaLogin from "../assets/Banner/loginmiranda.png";
+import mirandaDashboard from "../assets/Banner/dashoardmiranda.png";
+import mirandaVenta from "../assets/Banner/ventamiranda.png";
+import shopMain from "../assets/Banner/shop.png";
+import shopCatalogo from "../assets/Banner/shopcatalogo.png";
+import admusMain from "../assets/Banner/admus.png";
+import admusDashboard from "../assets/Banner/admusdashoard.png";
+import admusLogin from "../assets/Banner/admuslogin.png";
+
+export interface ShowcaseItem {
+    title: string;
+    description: string;
+    image: any;
+}
+
+export interface Demo {
+    title: string;
+    description: string;
+    company: string;
+    items: ShowcaseItem[];
+}
+
+export interface Service {
+    id: string;
+    index: number;
+    titleTop: string;
+    titleBottom: string;
+    img: any;
+    heroImg: any;
+    alt: string;
+    brief: string;
+    description: string;
+    features: string[];
+    demos?: Demo[];
+}
+
+const mirandaDemo: Demo = {
+    company: "Importadora Miranda",
+    title: "Sistema de Ventas y Gestión Miranda",
+    description: "Una solución robusta para la gestión mayorista y minorista, integrando inventario en tiempo real con puntos de venta físicos y virtuales.",
+    items: [
+        {
+            title: "Módulo de Ventas Pro",
+            description: "Interfaz optimizada para transacciones rápidas, manejo de múltiples métodos de pago y generación automática de recibos.",
+            image: mirandaVenta
+        },
+        {
+            title: "Panel de Inteligencia de Negocios",
+            description: "Dashboard completo con métricas clave, visualización de ventas diarias y estado crítico de inventario.",
+            image: mirandaDashboard
+        },
+        {
+            title: "Acceso Seguro y Roles",
+            description: "Sistema de autenticación robusto con control de accesos por jerarquía para proteger la información sensible.",
+            image: mirandaLogin
+        }
+    ]
+};
+
+const shopDemo: Demo = {
+    company: "Shop Pro",
+    title: "Plataforma de E-commerce Minorista",
+    description: "Diseñada para ofrecer una experiencia de compra fluida con un enfoque en la conversión y la facilidad de navegación.",
+    items: [
+        {
+            title: "Escaparate Digital Moderno",
+            description: "Diseño visual impactante que resalta los productos y facilita la navegación del cliente.",
+            image: shopMain
+        },
+        {
+            title: "Catálogo Dinámico",
+            description: "Búsqueda avanzada y filtros intuitivos que permiten a los usuarios encontrar lo que buscan en segundos.",
+            image: shopCatalogo
+        }
+    ]
+};
+
+const admusDemo: Demo = {
+    company: "Admus Producción",
+    title: "Gestión Integral de Contenido",
+    description: "Plataforma centralizada para coordinar campañas masivas de marketing de influencers con precisión logística.",
+    items: [
+        {
+            title: "Centro de Comando Admus",
+            description: "Vista general de campañas activas y métricas de rendimiento de los talentos.",
+            image: admusMain
+        },
+        {
+            title: "Cronograma Maestro",
+            description: "Calendario dinámico para la asignación de grabaciones y visitas a locaciones en tiempo real.",
+            image: admusDashboard
+        },
+        {
+            title: "Portal de Talento",
+            description: "Acceso personalizado para influencers donde pueden gestionar su disponibilidad y ver sus próximas tareas.",
+            image: admusLogin
+        }
+    ]
+};
+
+export const services: Service[] = [
     {
-        id: "tiendas-ecommerce",
+        id: "sistema-miranda",
         index: 1,
-        titleTop: "Tiendas E-commerce",
-        titleBottom: "Completas",
+        titleTop: "Sistema de",
+        titleBottom: "Ventas Miranda",
         img: cardEcommerceImg,
-        heroImg: heroEcommerceImg,
-        alt: "Tiendas E-commerce Completas",
-        brief: "Sistemas completos de tienda online con gestión integral.",
-        description: "Desarrollamos tiendas online completas con todos los módulos necesarios: catálogo de productos, carrito de compras, verificación de pagos, gestión de almacén e inventario, panel administrativo y reportes. Hemos implementado soluciones exitosas para Importadora Miranda, Importadora Afios y otros clientes, optimizando sus ventas y procesos.",
-        features: ["Sistema de Pagos Integrado", "Gestión de Inventario y Almacén", "Panel de Administración Completo", "Reportes y Estadísticas de Ventas"]
+        heroImg: mirandaLogin,
+        alt: "Sistema de Ventas Importadora Miranda",
+        brief: "Gestión integral de ventas e inventario para distribuidoras.",
+        description: "Sistema desarrollado para Importadora Miranda que centraliza todas las operaciones comerciales, desde el ingreso de mercadería hasta la facturación final, garantizando un control total sobre el stock y las finanzas.",
+        features: ["Control de Inventario", "Punto de Venta (POS)", "Sincronización en la Nube", "Reportes Financieros"],
+        demos: [mirandaDemo]
     },
     {
-        id: "software-medida",
+        id: "sistema-shop",
         index: 2,
-        titleTop: "Software a",
-        titleBottom: "Medida",
+        titleTop: "E-commerce",
+        titleBottom: "Shop Pro",
         img: cardSoftwareImg,
-        heroImg: heroSoftwareImg,
-        alt: "Desarrollo de Software Personalizado",
-        brief: "Soluciones de software diseñadas específicamente para tu negocio.",
-        description: "Creamos software personalizado que se adapta perfectamente a las necesidades de tu empresa. Desde sistemas de gestión empresarial hasta aplicaciones especializadas. Nuestro enfoque es entender tu proceso de negocio y crear herramientas que optimicen tu operación y aumenten tu productividad.",
-        features: ["Análisis de Procesos de Negocio", "Desarrollo Backend y Frontend", "Integración con Sistemas Existentes", "Soporte y Mantenimiento Continuo"]
+        heroImg: shopMain,
+        alt: "Plataforma E-commerce Shop Pro",
+        brief: "Tienda online de alto rendimiento y catálogo dinámico.",
+        description: "Plataforma de comercio electrónico diseñada para maximizar las ventas online. Incluye un catálogo interactivo, gestión de pedidos simplificada y una interfaz de usuario premiun diseñada para la conversión.",
+        features: ["Carrito de Compras", "Catálogo Interactivo", "Pagos Digitales", "Gestión de Clientes"],
+        demos: [shopDemo]
     },
     {
-        id: "calendario-influencers",
+        id: "sistema-admus",
         index: 3,
-        titleTop: "Sistema de Calendario",
-        titleBottom: "para Influencers",
+        titleTop: "Gestión Admus",
+        titleBottom: "Producciones",
         img: cardInfluencerImg,
-        heroImg: heroInfluencerImg,
-        alt: "Sistema de Calendario para Influencers",
-        brief: "Gestión de horarios y ubicaciones para influencers y empresas.",
-        description: "Sistema especializado desarrollado para Admus Producción que permite a los influencers gestionar sus horarios, ver ubicaciones de empresas, coordinar visitas y mantener organizada su agenda de colaboraciones. Los influencers pueden ver fácilmente dónde ir, a qué hora y con qué empresa trabajar, todo desde una interfaz intuitiva.",
-        features: ["Calendario Interactivo de Horarios", "Gestión de Ubicaciones Empresariales", "Notificaciones y Recordatorios", "Vista de Agenda por Influencer"]
+        heroImg: admusLogin,
+        alt: "Sistema Admus Producciones",
+        brief: "Coordinación logística para influencers y marcas.",
+        description: "Software especializado para Admus Producción que optimiza la relación entre marcas y creadores de contenido, manejando cronogramas complejos de grabación y visitas técnicas.",
+        features: ["Calendario Logístico", "Gestión de Talentos", "Control de Campañas", "Seguimiento de Resultados"],
+        demos: [admusDemo]
     },
+    // Repetición para placeholders
     {
-        id: "gift-cards",
+        id: "sistema-miranda-2",
         index: 4,
-        titleTop: "Gift Cards",
-        titleBottom: "Digitales",
+        titleTop: "Sistema Ventas",
+        titleBottom: "Miranda v2",
         img: cardGiftCardImg,
-        heroImg: heroGiftCardImg,
-        alt: "Sistema de Tarjetas de Regalo",
-        brief: "Sistema completo de tarjetas de regalo digitales.",
-        description: "Desarrollamos sistemas de Gift Cards (tarjetas de regalo) digitales que permiten a tus clientes comprar, enviar y canjear tarjetas de regalo fácilmente. Incluye generación de códigos únicos, seguimiento de saldos, historial de transacciones y panel administrativo para gestionar todas las tarjetas emitidas.",
-        features: ["Generación de Códigos Únicos", "Sistema de Canje y Validación", "Gestión de Saldos y Vencimientos", "Panel Administrativo Completo"]
+        heroImg: mirandaLogin,
+        alt: "Copia de Sistema Miranda",
+        brief: "Gestión avanzada de ventas.",
+        description: "Una versión extendida del sistema de gestión comercial líder en el mercado.",
+        features: ["Multi-sucursal", "Módulo de Gastos", "Contabilidad Básica", "Alertas de Stock"],
+        demos: [mirandaDemo]
     },
     {
-        id: "pedidos-tiktok",
+        id: "sistema-shop-2",
         index: 5,
-        titleTop: "Sistema de Pedidos",
-        titleBottom: "TikTok Live",
+        titleTop: "E-commerce",
+        titleBottom: "Industrial",
         img: cardTiktokImg,
-        heroImg: heroTiktokImg,
-        alt: "Sistema de Pedidos para TikTok Live",
-        brief: "Gestión de pedidos en vivo para múltiples ubicaciones.",
-        description: "Sistema especializado para gestionar pedidos durante transmisiones en vivo de TikTok. Permite recibir, organizar y distribuir pedidos en tiempo real para diferentes ubicaciones. Ideal para negocios que venden a través de lives y necesitan coordinar entregas en múltiples puntos de venta o ciudades.",
-        features: ["Gestión de Pedidos en Tiempo Real", "Múltiples Ubicaciones de Entrega", "Panel de Control de Inventario", "Reportes de Ventas por Live"]
+        heroImg: shopMain,
+        alt: "Copia de Sistema Shop",
+        brief: "Escalabilidad para ventas masivas.",
+        description: "Solución de comercio electrónico preparada para manejar grandes volúmenes de tráfico y pedidos.",
+        features: ["API de Integración", "Optimización SEO", "Diseño Responsive", "Velocidad de Carga"],
+        demos: [shopDemo]
     },
     {
-        id: "calendario-tareas",
+        id: "sistema-admus-2",
         index: 6,
-        titleTop: "Calendario de",
-        titleBottom: "Tareas",
+        titleTop: "Calendario",
+        titleBottom: "Logístico",
         img: cardTasksImg,
-        heroImg: heroTasksImg,
-        alt: "Sistema de Calendario de Tareas",
-        brief: "Organización y gestión eficiente de tareas y proyectos.",
-        description: "Sistema de calendario y gestión de tareas que ayuda a equipos y empresas a organizar sus actividades, establecer prioridades, asignar responsables y dar seguimiento a proyectos. Incluye recordatorios, notificaciones y reportes de productividad para mantener todo bajo control.",
-        features: ["Calendario Visual de Tareas", "Asignación de Responsables", "Prioridades y Etiquetas", "Recordatorios Automáticos"]
-    },
+        heroImg: admusLogin,
+        alt: "Copia de Sistema Admus",
+        brief: "Gestión de tareas y cronogramas.",
+        description: "Sistema de organización por tiempos diseñado para la coordinación de equipos creativos.",
+        features: ["Timeline Interactivo", "Asignación de Tareas", "Notificaciones Push", "Reportes de Avance"],
+        demos: [admusDemo]
+    }
 ];
+
