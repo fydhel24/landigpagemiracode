@@ -84,55 +84,56 @@
 
   @layer components {
     .btn-primary {
-      @apply bg-gradient-to-r from-primary to-secondary text-white rounded-xl px-[35px] py-5 transition-all duration-300 shadow-md;
+      @apply bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] text-white rounded-2xl px-10 py-5 transition-all duration-500 shadow-[0_10px_30px_-10px_rgba(139,92,246,0.5)] font-extrabold tracking-tight;
     }
     .btn-primary:hover {
-      @apply from-secondary to-primary text-white transform scale-[1.02] shadow-lg;
+      @apply bg-[position:right_center] scale-[1.03] shadow-[0_20px_40px_-15px_rgba(139,92,246,0.7)];
     }
 
     .btn-secondary {
-      @apply bg-transparent text-primary px-[35px] py-5 rounded-xl border-2 border-solid border-primary transition-all duration-300;
+      @apply bg-transparent text-primary px-10 py-5 rounded-2xl border-2 border-primary/30 backdrop-blur-sm transition-all duration-500 font-extrabold tracking-tight;
     }
     .btn-secondary:hover {
-      @apply bg-primary/10 border-secondary text-secondary transform scale-[1.02];
+      @apply border-primary bg-primary/5 text-primary scale-[1.03] shadow-[0_15px_30px_-10px_rgba(139,92,246,0.2)];
     }
 
     .btn-tertiary {
-      @apply bg-accent text-white rounded-xl px-[35px] py-5 transition-all duration-300 shadow-md;
+      @apply bg-accent text-white rounded-2xl px-10 py-5 transition-all duration-500 shadow-md font-bold;
     }
     .btn-tertiary:hover {
-      @apply bg-primary text-white transform scale-[1.02] shadow-lg;
+      @apply bg-primary text-white scale-[1.03] shadow-[0_15px_30px_-10px_rgba(139,92,246,0.4)];
     }
 
     .greenhead {
-      @apply bg-primary text-white rounded-[7px] px-[7px];
+      @apply bg-primary text-white rounded-lg px-3 py-1 font-black text-[10px] uppercase tracking-widest;
     }
 
     .whitehead {
-      @apply bg-white text-primary rounded-[7px] px-[7px];
+      @apply bg-white text-primary border border-white/20 rounded-lg px-3 py-1 font-black text-[10px] uppercase tracking-widest;
     }
 
     .blackhead {
-      @apply bg-dark text-white rounded-[7px] px-[7px];
+      @apply bg-dark text-white rounded-lg px-3 py-1 font-black text-[10px] uppercase tracking-widest;
     }
   }
 }
 
 /* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8b5cf6;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
+  background: linear-gradient(to bottom, var(--secondary), var(--accent));
 }
 
 /* markdown style */
@@ -170,15 +171,12 @@
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -2px;
-
+  bottom: -4px;
   width: 0;
   height: 2px;
-
-  background: linear-gradient(90deg, #2563eb, #7c3aed, #f97316);
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
   transform: translateX(-50%);
-
-  transition: width 0.35s ease;
+  transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .nav-underline:hover::after {
